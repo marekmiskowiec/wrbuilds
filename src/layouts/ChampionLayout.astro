@@ -1,0 +1,18 @@
+---
+const { frontmatter } = Astro.props;
+---
+
+<h2>{frontmatter.title}</h2>
+<p>{frontmatter.description}</p>
+<p>Tier: {frontmatter.tier}</p>
+
+<style>
+    h2 {
+        font-size: 50px;
+        color: blue;
+    }
+
+    body {
+        background-color:green;
+    }
+</style>
