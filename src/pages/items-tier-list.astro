@@ -1,0 +1,140 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+
+const s_tier = ['jax', 'hecarim']
+const a_tier = ['gragas']
+const b_tier = ['morgana']
+const c_tier = ['kayle']
+const d_tier = ['abbyssal-mask']
+---
+
+<style>
+    *,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page-title {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  margin: 20px;
+  justify-content: center;
+}
+
+.box1 {
+  flex: 2;
+
+  background-color: orange;
+
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box2 {
+  flex: 5;
+
+  background-color: purple;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.box img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.box {
+  width: 75px;
+  height: 75px;
+  background-color: lightcoral;
+  margin: 10px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+</style>
+
+<BaseLayout>
+  <h2 class="page-title">Item Tier List Patch 5.2B</h2>
+
+  <div class="container">
+    <h3>
+      Tier-S  - Currently the best items in Wild Rift! These items give champions great value and have insane stats to boost the champions' potential.<br />
+      Tier-A - Strong items. In the right situation, these items can benefit a lot of champions.<br />
+      Tier-B - These items are ok. They're still good in the right scenarios.<br />
+      Tier C - These items have little to no benefits when building them. They are limited to what champions can use them and can struggle to help you win games. <br />
+      Tier D - The worst of the worst. Even though every item can be helpful, you will be at a disadvantage when building these items.
+    </h3>
+  </div>
+
+  <div class="container">
+    <div class="box1">S</div>
+    <div class="box2">
+      {
+          s_tier.map((s_tier) => (
+          <div class="box"><img src={`/items/${s_tier}.png`} alt=""></div>
+          ))
+      }
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="box1">A</div>
+    <div class="box2">
+      {
+          a_tier.map((a_tier) => (
+          <div class="box"><img src={`/items/${a_tier}.webp`} alt=""></div>
+          ))
+      }
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="box1">B</div>
+    <div class="box2">
+      {
+          b_tier.map((b_tier) => (
+          <div class="box"><img src={`/items/${b_tier}.webp`} alt=""></div>
+          ))
+      }
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="box1">C</div>
+    <div class="box2">
+      {
+          c_tier.map((c_tier) => (
+          <div class="box"><img src={`/items/${c_tier}.webp`} alt=""></div>
+          ))
+      }
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="box1">D</div>
+    <div class="box2">
+      {
+          d_tier.map((d_tier) => (
+          <div class="box"><img src={`/items/${d_tier}.webp`} alt=""></div>
+          ))
+      }
+    </div>
+  </div>
+
+</BaseLayout>
