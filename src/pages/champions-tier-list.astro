@@ -1,0 +1,154 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+
+const s_plus_tier = ['aatrox', 'rengar']
+const s_tier = ['jax', 'hecarim']
+const a_tier = ['gragas']
+const b_tier = ['morgana']
+const c_tier = ['kayle']
+const d_tier = ['twitch']
+---
+
+<style>
+    *,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page-title {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  margin: 20px;
+  justify-content: center;
+}
+
+.box1 {
+  flex: 2;
+
+  background-color: orange;
+
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box2 {
+  flex: 5;
+
+  background-color: purple;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.box img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.box {
+  width: 75px;
+  height: 75px;
+  background-color: lightcoral;
+  margin: 10px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+</style>
+
+<BaseLayout>
+  <h2 class="page-title">Champion Tier List Patch 5.2B</h2>
+
+  <div class="container">
+    <h3>
+      Tier-S+ (The best choice) - Highest-performing Wild Rift Champions with
+      high win rates.<br />
+      Tier-S (A good choice) - Effective, reliable champions with high win
+      rates. <br />
+      Tier-A (Situational choice) - Balanced champions with good potential in a
+      particular situation.<br />
+      Tier-B (Unstable champions) - A lot depends on your team as well as your
+      opponent's team.
+    </h3>
+  </div>
+  <div class="container">
+    <div class="box1">S+</div>
+    <div class="box2">
+      {
+          s_plus_tier.map((s_plus_tier) => (
+          <div class="box"><img src={`/champions/${s_plus_tier}.png`} alt=""></div>
+          ))
+      }
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="box1">S</div>
+    <div class="box2">
+      {
+          s_tier.map((s_tier) => (
+          <div class="box"><img src={`/champions/${s_tier}.png`} alt=""></div>
+          ))
+      }
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="box1">A</div>
+    <div class="box2">
+      {
+          a_tier.map((a_tier) => (
+          <div class="box"><img src={`/champions/${a_tier}.png`} alt=""></div>
+          ))
+      }
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="box1">B</div>
+    <div class="box2">
+      {
+          b_tier.map((b_tier) => (
+          <div class="box"><img src={`/champions/${b_tier}.png`} alt=""></div>
+          ))
+      }
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="box1">C</div>
+    <div class="box2">
+      {
+          c_tier.map((c_tier) => (
+          <div class="box"><img src={`/champions/${c_tier}.png`} alt=""></div>
+          ))
+      }
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="box1">D</div>
+    <div class="box2">
+      {
+          d_tier.map((d_tier) => (
+          <div class="box"><img src={`/champions/${d_tier}.png`} alt=""></div>
+          ))
+      }
+    </div>
+  </div>
+
+</BaseLayout>
