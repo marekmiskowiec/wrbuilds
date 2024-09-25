@@ -1,6 +1,9 @@
 ---
 layout: ../../layouts/ChampionLayout.astro
 title: "ahri"
-pubDate: 2022-07-01
+description: "descr"
+author: "Lexiw"
+role: ["Solo", "Jungle"]
+tier: "S+"
 image: "/champions/ahri.png"
 ---

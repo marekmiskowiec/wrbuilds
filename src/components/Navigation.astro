@@ -2,6 +2,7 @@
   <div class="header__content">
     <a href="/" class="logo">WildriftGuides</a>
 
+
     <nav class="nav">
       <ul class="nav__list">
         <li class="nav__item">
@@ -16,8 +17,14 @@
         <li class="nav__item">
           <a href="/runes-tier-list" class="nav__link">Runes Tier List</a>
         </li>
+        <li class="nav__item">
+          <a href="/runes-tier-list" class="nav__link">Blog</a>
+        </li>
       </ul>
     </nav>
+    <div class="theme">
+      <img src="./theme/sun.png" alt="sun" id="icon" />
+    </div>
 
     <div class="hamburger">
       <div class="bar"></div>
@@ -106,6 +113,11 @@
   .nav--open {
     transform: translate(0) !important;
   }
+
+  #icon {
+  width: 30px;
+  cursor: pointer;
+}
 
   .hamburger--open .bar:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
