@@ -1,38 +1,43 @@
 ---
 const { frontmatter } = Astro.props;
 import data from "../data/champion-stats.json"
+
+import BaseLayout from "./BaseLayout.astro"
 ---
 
-<section class="champion-container">
-    <div class="champion-stats">
-        <div class="champion-image">
-            <img src={frontmatter.image} alt="aatrox">
-        </div>
-        <div class="champion-info">
-            <h2 class="champion-title">{frontmatter.title}</h2>
-            <p class="champion-description">{frontmatter.description}</p>
-            <p class="champion-tier">Tier: <span style="font-weight: bold;">{frontmatter.tier}</span></p>
-        </div>
-    </div>
-    <section class="stats">
-        <div class="container">
-            <h2>Basic statistics</h2>
-            <h1>{data[frontmatter.title].title} - {data[frontmatter.title].id}</h1>
-            <p><strong>Title:</strong> {data[frontmatter.title].title}</p>
-            <p><strong>Damage:</strong> {data[frontmatter.title].damage}</p>
-            <p><strong>Toughness:</strong> {data[frontmatter.title].toughness}</p>
-            <p><strong>Utility:</strong> {data[frontmatter.title].utility}</p>
-            <p><strong>Difficulty:</strong> {data[frontmatter.title].difficulty}</p>
-            <p><strong>Role:</strong> {data[frontmatter.title].role.join(', ')}</p>
-            <p><strong>Skills:</strong> {data[frontmatter.title].skills.join(', ')}</p>
-            <p><strong>Stats:</strong>{data[frontmatter.title].stats.hp_base}</p>
-        </div>
-    </section>
+<BaseLayout>
+    <div class="champion-container">
 
+        <section class="info">
+            <div class="container">
+                <div class="champion-image">
+                    <img src={frontmatter.image} alt="aatrox">
+                </div>
+                <div class="champion-info">
+                    <h2 class="champion-title">{frontmatter.title}</h2>
+                    <p class="champion-description">{frontmatter.description}</p>
+                    <p class="champion-tier">Tier: <span style="font-weight: bold;">{frontmatter.tier}</span></p>
+                </div>
+            </div>
+        </section>
 
-
-    <section class="items">
-        <div class="container">
+        <section class="stats">
+            <div class="container">
+                <h2>Basic statistics</h2>
+                <h1>{data[frontmatter.title].title} - {data[frontmatter.title].id}</h1>
+                <p><strong>Title:</strong> {data[frontmatter.title].title}</p>
+                <p><strong>Damage:</strong> {data[frontmatter.title].damage}</p>
+                <p><strong>Toughness:</strong> {data[frontmatter.title].toughness}</p>
+                <p><strong>Utility:</strong> {data[frontmatter.title].utility}</p>
+                <p><strong>Difficulty:</strong> {data[frontmatter.title].difficulty}</p>
+                <p><strong>Role:</strong> {data[frontmatter.title].role.join(', ')}</p>
+                <p><strong>Skills:</strong> {data[frontmatter.title].skills.join(', ')}</p>
+                <p><strong>Stats:</strong>{data[frontmatter.title].stats.hp_base}</p>
+            </div>
+        </section>
+    
+        <section class="items">
+            <div class="container">
                 <h2>{frontmatter.title} - item build</h2>
                 <div class="row">
                     {frontmatter.builds.items.map((item) => (
@@ -45,13 +50,11 @@ import data from "../data/champion-stats.json"
                         </div>
                     </div>
                     ))}
-                </div>
             </div>
-        </div>
-    </section>
-
-    <section class="summoner-spells">
-        <div class="container">
+        </section>
+    
+        <section class="summoner-spells">
+            <div class="container">
                 <h2>{frontmatter.title} - summoner spells</h2>
                 <div class="row">
                     {frontmatter.builds.summoners.map((summoner) => (
@@ -66,11 +69,10 @@ import data from "../data/champion-stats.json"
                     ))}
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="runes">
-        <div class="container">
+        </section>
+    
+        <section class="runes">
+            <div class="container">
                 <h2>{frontmatter.title} - runes</h2>
                 <div class="row">
                     {frontmatter.builds.runes.map((rune) => (
@@ -85,64 +87,86 @@ import data from "../data/champion-stats.json"
                     ))}
                 </div>
             </div>
-        </div>
-    </section>
-
-    <div class="skills">
-        <h2>Abilities</h2>
-        <h2>Passive</h2>
-        <div class="skill">
-            <div class="skill-video">
-                <video src={frontmatter.abilities.passive.video} type="video/webm" autoplay muted loop playsinline />
+        </section>
+    
+        <section class="skills">
+            <div class="container">
+                <h2>Abilities</h2>
+                <h2>Passive</h2>
+                <div class="skill">
+                    <div class="skill-video">
+                        <video src={frontmatter.abilities.passive.video} type="video/webm" autoplay muted loop playsinline />
+                    </div>
+                    <div class="skill-description">
+                        <p>{frontmatter.skilldescription1}</p>
+                    </div>
+                </div>
             </div>
-            <div class="skill-description">
-                <p>{frontmatter.skilldescription1}</p>
+            <div class="container">
+                <h2>Skill one</h2>
+                <div class="skill">
+                    <div class="skill-video">
+                        <video src={frontmatter.abilities.one.video} type="video/webm" autoplay muted loop playsinline />
+                    </div>
+                    <div class="skill-description">
+                        <p>{frontmatter.skilldescription1}</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <h2>Skill one</h2>
-        <div class="skill">
-            <div class="skill-video">
-                <video src={frontmatter.abilities.one.video} type="video/webm" autoplay muted loop playsinline />
+            <div class="container">
+                <h2>Skill two</h2>
+                <div class="skill">
+                    <div class="skill-video">
+                        <video src={frontmatter.abilities.two.video} type="video/webm" autoplay muted loop playsinline />
+                    </div>
+                    <div class="skill-description">
+                        <p>{frontmatter.skilldescription1}</p>
+                    </div>
+                </div>
             </div>
-            <div class="skill-description">
-                <p>{frontmatter.skilldescription1}</p>
+            <div class="container">
+                <h2>Skill three</h2>
+                <div class="skill">
+                    <div class="skill-video">
+                        <video src={frontmatter.abilities.three.video} type="video/webm" autoplay muted loop playsinline />
+                    </div>
+                    <div class="skill-description">
+                        <p>{frontmatter.skilldescription1}</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <h2>Skill two</h2>
-        <div class="skill">
-            <div class="skill-video">
-                <video src={frontmatter.abilities.two.video} type="video/webm" autoplay muted loop playsinline />
+            <div class="container">
+                <h2>Skill four</h2>
+                <div class="skill">
+                    <div class="skill-video">
+                        <video src={frontmatter.abilities.ult.video} type="video/webm" autoplay muted loop playsinline />
+                    </div>
+                    <div class="skill-description">
+                        <p>{frontmatter.skilldescription1}</p>
+                    </div>
+                </div>
             </div>
-            <div class="skill-description">
-                <p>{frontmatter.skilldescription1}</p>
-            </div>
-        </div>
-        <h2>Skill three</h2>
-        <div class="skill">
-            <div class="skill-video">
-                <video src={frontmatter.abilities.three.video} type="video/webm" autoplay muted loop playsinline />
-            </div>
-            <div class="skill-description">
-                <p>{frontmatter.skilldescription1}</p>
-            </div>
-        </div>
-        <h2>Skill four</h2>
-        <div class="skill">
-            <div class="skill-video">
-                <video src={frontmatter.abilities.ult.video} type="video/webm" autoplay muted loop playsinline />
-            </div>
-            <div class="skill-description">
-                <p>{frontmatter.skilldescription1}</p>
-            </div>
-        </div>
     </div>
-</section>
+        </section>
+    </div>
+</BaseLayout>
 
 <style>
+    .champion-container {
+        margin: 0 auto;
+        width: 90%;
+        margin-top: 20px;
+        color: white;
+        padding: 10px;
+    }
+
+
     .container {
         background-color: #2e4da2;
         text-align: center;
         border-radius: 30px;
+        margin-bottom: 30px;
+        padding: 20px;
     }
 
     .row {
@@ -150,27 +174,23 @@ import data from "../data/champion-stats.json"
         justify-content: center;
         align-items: center;
         gap: 50px;
+        flex-wrap: wrap;
     }
 
     .item-container {
-        height: 150px;
-        width: 100px;
-        gap: 2;
-    }
+    height: auto;
+    width: 80px;
+    margin-bottom: 10px;
+}
 
     .item-image img {
         width: 100%;
         border-radius: 50%;
     }
 
-    .champion-container {
-        width: 80%;
-        margin: 0 auto;
-        color: white;
-    }
 
     .champion-stats {
-        background-color: rgb(21, 200, 216);
+        background-color: #2e4da2;
         display: flex;
         gap: 100px;
         width: 100%;
@@ -178,13 +198,13 @@ import data from "../data/champion-stats.json"
     }
 
     .champion-image img {
-        width: auto;
-        height: 100%;
-    }
+        width: 200px;
+        height: auto;
+        border-radius: 15px;
+}
 
     .champion-title {
-        font-size: 40px;
-        font-weight: bold;
+        font-size: 35px;
     }
 
     .champion-description, .champion-tier {
@@ -193,10 +213,15 @@ import data from "../data/champion-stats.json"
 
     .skill {
         display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin-bottom: 20px;
     }
 
     .skill-video {
-        flex: 1 0 50%;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
     }
 
     .skill-video video {
@@ -206,9 +231,11 @@ import data from "../data/champion-stats.json"
     .skill-description {
         flex: 1 0 50%;
         background-color: rgba(36, 227, 241, 0.687);
-        font-size: 25px;
-
+        font-size: 20px;
+        padding: 15px;
+        text-align: left;
     }
+
 
 
     body {
@@ -217,44 +244,78 @@ import data from "../data/champion-stats.json"
 
     /* Styl dla średnich ekranów (tablety) */
 @media (max-width: 768px) {
+    .champion-container {
+        width: 95%;
+        padding: 5px;
+    }
+    
     .skill {
-        flex-direction: column; /* Ustawienie elementów w kolumnie */
-        text-align: center; /* Wyśrodkowanie treści */
+        flex-direction: column;
+    }
+
+    .item-container {
+        width: 70px;
     }
 
     .skill-video,
     .skill-description {
-        flex: 1 0 100%; /* Pełna szerokość dla obu sekcji */
+        flex: 1 0 100%;
     }
 
     .skill-description {
-        font-size: 20px; /* Mniejsza czcionka dla tabletów */
+        font-size: 20px;
     }
 }
 
 /* Styl dla małych ekranów (smartfony) */
 @media (max-width: 480px) {
+    .champion-container {
+        width: 100%;
+    }
+
+    .container {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .item-container {
+        width: 70px;
+    }
+
+    .champion-title {
+        font-size: 28px;
+    }
+
+    .champion-description, .champion-tier {
+        font-size: 18px;
+    }
+
+    .champion-image img {
+        width: 80%;
+        margin: 0 auto;
+    }
+
     .skill {
-        flex-direction: column; /* Ustawienie elementów w kolumnie */
+        flex-direction: column;
         margin: 10px 0;
     }
 
     .skill-video {
-        flex: 1 0 100%; /* Pełna szerokość dla wideo */
+        flex: 1 0 100%;
     }
 
     .skill-video video {
-        width: 100%; /* Dopasowanie wideo do kontenera */
+        width: 100%;
+        height: auto;
     }
 
     .skill-description {
-        flex: 1 0 100%; /* Pełna szerokość dla opisu */
-        font-size: 18px; /* Jeszcze mniejsza czcionka dla telefonów */
+        font-size: 18px;
         padding: 10px;
     }
 
     h2 {
-        font-size: 22px; /* Zmniejszenie rozmiaru nagłówków */
+        font-size: 22px;
     }
 }
 </style>
