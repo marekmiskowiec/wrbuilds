@@ -1,140 +1,228 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
+import ChampionFilter from "../components/ChampionFilter.jsx"
 
-const s_tier = ['jax', 'hecarim']
-const a_tier = ['gragas']
-const b_tier = ['morgana']
-const c_tier = ['kayle']
-const d_tier = ['abbyssal-mask']
+const champions = {
+  op: [
+    /* baron */
+    { name: 'darius', roles: ['baron'] },
+    { name: 'renekton', roles: ['baron'] },
+    { name: 'riven', roles: ['baron'] },
+    { name: 'aatrox', roles: ['baron'] },
+    { name: 'mordekaiser', roles: ['baron'] },
+    { name: 'ornn', roles: ['baron'] },
+    { name: 'camille', roles: ['baron'] },
+    /* jungle */
+    { name: 'rengar', roles: ['jungle'] },
+    { name: 'gragas', roles: ['jungle'] },
+    { name: 'vi', roles: ['jungle'] },
+    { name: 'lee-sin', roles: ['jungle'] },
+    /* mid */
+    { name: 'syndra', roles: ['mid'] },
+    { name: 'kassadin', roles: ['mid'] },
+    { name: 'morgana', roles: ['mid'] },
+    { name: 'yone', roles: ['mid'] },
+    /* dragon */
+    { name: 'varus', roles: ['dragon'] },
+    { name: 'ezreal', roles: ['dragon'] },
+    { name: 'xayah', roles: ['dragon'] },
+    { name: 'kalista', roles: ['dragon'] },
+    /* support */
+    { name: 'milio', roles: ['support'] },
+    { name: 'maokai', roles: ['support'] },
+    { name: 'lulu', roles: ['support'] },
+  ],
+  s: [
+    /* baron */
+    { name: 'kayle', roles: ['baron'] },
+    { name: 'jax', roles: ['baron'] },
+    { name: 'fiora', roles: ['baron'] },
+    { name: 'wukong', roles: ['baron'] },
+    { name: 'jayce', roles: ['baron'] },
+    { name: 'gragas', roles: ['baron'] },
+    { name: 'akali', roles: ['baron'] },
+    { name: 'sett', roles: ['baron'] },
+    { name: 'maokai', roles: ['baron'] },
+    { name: 'yasuo', roles: ['baron'] },
+      /* jungle */
+    { name: 'kayle', roles: ['jungle'] },
+    { name: 'wukong', roles: ['jungle'] },
+    { name: 'riven', roles: ['jungle'] },
+    { name: 'viego', roles: ['jungle'] },
+    { name: 'xin-zhao', roles: ['jungle'] },
+    { name: 'kha-zix', roles: ['jungle'] },
+    { name: 'darius', roles: ['jungle'] },
+    { name: 'graves', roles: ['jungle'] },
+    { name: 'nunu', roles: ['jungle'] },
+    { name: 'master-yi', roles: ['jungle'] },
+    { name: 'talon', roles: ['jungle'] },
+    { name: 'ekko', roles: ['jungle'] },
+    { name: 'aatrox', roles: ['jungle'] },
+    { name: 'hecarim', roles: ['jungle'] },
+    { name: 'amumu', roles: ['jungle'] },
+    { name: 'maokai', roles: ['jungle'] },
+    { name: 'lillia', roles: ['jungle'] },
+    { name: 'camille', roles: ['jungle'] },
+    /* mid */
+    { name: 'kayle', roles: ['mid'] },
+    { name: 'ahri', roles: ['mid'] },
+    { name: 'akali', roles: ['mid'] },
+    { name: 'diana', roles: ['mid'] },
+    { name: 'jayce', roles: ['mid'] },
+    { name: 'gragas', roles: ['mid'] },
+    { name: 'ziggs', roles: ['mid'] },
+    { name: 'corki', roles: ['mid'] },
+    { name: 'zed', roles: ['mid'] },
+    { name: 'yone', roles: ['mid'] },
+    /* dragon */
+    { name: 'caitlyn', roles: ['dragon'] },
+    { name: 'kaisa', roles: ['dragon'] },
+    { name: 'zeri', roles: ['dragon'] },
+    { name: 'sivir', roles: ['dragon'] },
+    { name: 'tristana', roles: ['dragon'] },
+    { name: 'ashe', roles: ['dragon'] },
+    /* support */
+    { name: 'braum', roles: ['support'] },
+    { name: 'janna', roles: ['support'] },
+    { name: 'zyra', roles: ['support'] },
+    { name: 'karma', roles: ['support'] },
+    { name: 'soraka', roles: ['support'] },
+    { name: 'nautilus', roles: ['support'] },
+    { name: 'pyke', roles: ['support'] },
+    { name: 'thresh', roles: ['support'] },
+    { name: 'gragas', roles: ['support'] },
+    { name: 'leona', roles: ['support'] },
+  ],
+  a: [
+  /* baron */
+  { name: 'garen', roles: ['baron'] },
+  { name: 'yone', roles: ['baron'] },
+  { name: 'kennen', roles: ['baron'] },
+  { name: 'dr-mundo', roles: ['baron'] },
+  { name: 'malphite', roles: ['baron'] },
+  { name: 'volibear', roles: ['baron'] },
+  { name: 'nasus', roles: ['baron'] },
+  { name: 'gwen', roles: ['baron'] },
+  { name: 'sion', roles: ['baron'] },
+  { name: 'shen', roles: ['baron'] },
+  { name: 'urgot', roles: ['baron'] },
+    /* jungle */
+  { name: 'jax', roles: ['jungle'] },
+  { name: 'kindred', roles: ['jungle'] },
+  { name: 'shyvana', roles: ['jungle'] },
+  { name: 'volibear', roles: ['jungle'] },
+  { name: 'pantheon', roles: ['jungle'] },
+  { name: 'olaf', roles: ['jungle'] },
+  { name: 'nautilus', roles: ['jungle'] },
+  { name: 'kayn', roles: ['jungle'] },
+  { name: 'nilah', roles: ['jungle'] },
+  { name: 'zed', roles: ['jungle'] },
+  { name: 'diana', roles: ['jungle'] },
+  { name: 'warwick', roles: ['jungle'] },
+  { name: 'tryndamere', roles: ['jungle'] },
+  { name: 'rammus', roles: ['jungle'] },
+  { name: 'jarvan-iv', roles: ['jungle'] },
+  { name: 'yone', roles: ['jungle'] },
+  { name: 'mordekaiser', roles: ['jungle'] },
+  { name: 'shen', roles: ['jungle'] },
+  /* mid */
+  { name: 'zoe', roles: ['mid'] },
+  { name: 'akshan', roles: ['mid'] },
+  { name: 'twisted-fate', roles: ['mid'] },
+  { name: 'vex', roles: ['mid'] },
+  { name: 'veigar', roles: ['mid'] },
+  { name: 'ekko', roles: ['mid'] },
+  { name: 'vladimir', roles: ['mid'] },
+  { name: 'zyra', roles: ['mid'] },
+  { name: 'annie', roles: ['mid'] },
+  { name: 'irelia', roles: ['mid'] },
+  { name: 'lissandra', roles: ['mid'] },
+  /* dragon */
+  { name: 'lucian', roles: ['dragon'] },
+  { name: 'draven', roles: ['dragon'] },
+  { name: 'corki', roles: ['dragon'] },
+  { name: 'missfortune', roles: ['dragon'] },
+  { name: 'jhin', roles: ['dragon'] },
+  { name: 'samira', roles: ['dragon'] },
+  /* support */
+  { name: 'alistar', roles: ['support'] },
+  { name: 'ornn', roles: ['support'] },
+  { name: 'sona', roles: ['support'] },
+  { name: 'seraphine', roles: ['support'] },
+  { name: 'nami', roles: ['support'] },
+  { name: 'rakan', roles: ['support'] },
+  { name: 'lux', roles: ['support'] },
+  { name: 'senna', roles: ['support'] },
+  { name: 'yuumi', roles: ['support'] },
+  ],
+  b: [
+  /* baron */
+  { name: 'pantheon', roles: ['baron'] },
+  { name: 'irelia', roles: ['baron'] },
+  { name: 'olaf', roles: ['baron'] },
+  { name: 'vladimir', roles: ['baron'] },
+  { name: 'swain', roles: ['baron'] },
+  { name: 'tryndamere', roles: ['baron'] },
+  { name: 'teemo', roles: ['baron'] },
+  /* jungle */
+  { name: 'gwen', roles: ['jungle'] },
+  { name: 'jayce', roles: ['jungle'] },
+  { name: 'dr-mundo', roles: ['jungle'] },
+  { name: 'morgana', roles: ['jungle'] },
+  { name: 'fizz', roles: ['jungle'] },
+  { name: 'fiddlesticks', roles: ['jungle'] },
+  { name: 'evelynn', roles: ['jungle'] },
+  /* mid */
+  { name: 'kennen', roles: ['mid'] },
+  { name: 'orianna', roles: ['mid'] },
+  { name: 'galio', roles: ['mid'] },
+  { name: 'karma', roles: ['mid'] },
+  { name: 'lux', roles: ['mid'] },
+  { name: 'aurelion-sol', roles: ['mid'] },
+  { name: 'swain', roles: ['mid'] },
+  { name: 'katarina', roles: ['mid'] },
+  { name: 'talon', roles: ['mid'] },
+  { name: 'lucian', roles: ['mid'] },
+  { name: 'fizz', roles: ['mid'] },
+  /* dragon */
+  { name: 'jinx', roles: ['dragon'] },
+  { name: 'nilah', roles: ['dragon'] },
+  { name: 'vayne', roles: ['dragon'] },
+  { name: 'twitch', roles: ['dragon'] },
+  /* support */
+  { name: 'galio', roles: ['support'] },
+  { name: 'brand', roles: ['support'] },
+  { name: 'morgana', roles: ['support'] },
+  { name: 'blitzcrank', roles: ['support'] },
+  ],
+  c: [
+    /* baron */
+    { name: 'singed', roles: ['baron'] },
+    /* jungle */
+    { name: 'nasus', roles: ['jungle'] },
+    { name: 'irelia', roles: ['jungle'] },
+    /* mid */
+    { name: 'brand', roles: ['mid'] },
+    /* dragon */
+    { name: 'senna', roles: ['dragon'] },
+    /* support */
+    { name: 'malphite', roles: ['support'] },
+    { name: 'swain', roles: ['support'] },
+  ],
+  d: [
+    /* jungle */
+    { name: 'twitch', roles: ['jungle'] },
+    /* dragon */
+    { name: 'akshan', roles: ['dragon'] },
+    { name: 'kindred', roles: ['dragon'] },
+  ]
+};
 ---
 
-<style>
-    *,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.page-title {
-  text-align: center;
-}
-
-.container {
-  display: flex;
-  margin: 20px;
-  justify-content: center;
-}
-
-.box1 {
-  flex: 2;
-
-  background-color: orange;
-
-  font-size: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.box2 {
-  flex: 5;
-
-  background-color: purple;
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.box img {
-  object-fit: cover;
-  width: 100%;
-  border-radius: 50%;
-}
-
-.box {
-  width: 75px;
-  height: 75px;
-  background-color: lightcoral;
-  margin: 10px;
-  border-radius: 50%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-</style>
 
 <BaseLayout>
-  <h2 class="page-title">Rune Tier List Patch 5.2B</h2>
+  <h2 class="page-title">Champion Tier List Patch 5.2B</h2>
 
-  <div class="container">
-    <h3>
-      Tier-S  - Currently the best runes in Wild Rift! These runes give champions great value and have insane stats to boost the champions' potential.<br />
-      Tier-A - Strong runes. In the right situation, these runes can benefit champions a lot.<br />
-      Tier-B - These runes are ok. They're still good in the right scenarios.<br />
-      Tier C - These runes have little to no benefits when using them. They are limited to what champions can use them and can struggle to help you win games. <br />
-      Tier D - The worst of the worst. Even though every rune can be helpful, you will be at a disadvantage when picking these runes.
-    </h3>
-  </div>
-
-  <div class="container">
-    <div class="box1">S</div>
-    <div class="box2">
-      {
-          s_tier.map((s_tier) => (
-          <div class="box"><img src={`/items/${s_tier}.png`} alt=""></div>
-          ))
-      }
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="box1">A</div>
-    <div class="box2">
-      {
-          a_tier.map((a_tier) => (
-          <div class="box"><img src={`/items/${a_tier}.webp`} alt=""></div>
-          ))
-      }
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="box1">B</div>
-    <div class="box2">
-      {
-          b_tier.map((b_tier) => (
-          <div class="box"><img src={`/items/${b_tier}.webp`} alt=""></div>
-          ))
-      }
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="box1">C</div>
-    <div class="box2">
-      {
-          c_tier.map((c_tier) => (
-          <div class="box"><img src={`/items/${c_tier}.webp`} alt=""></div>
-          ))
-      }
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="box1">D</div>
-    <div class="box2">
-      {
-          d_tier.map((d_tier) => (
-          <div class="box"><img src={`/items/${d_tier}.webp`} alt=""></div>
-          ))
-      }
-    </div>
-  </div>
-
+  <!-- Importujemy komponent filtrowania -->
+  <ChampionFilter champions={champions} client:load />
 </BaseLayout>

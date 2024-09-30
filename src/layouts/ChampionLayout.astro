@@ -89,6 +89,31 @@ import BaseLayout from "./BaseLayout.astro"
             </div>
         </section>
     
+        <section class="skill-order">
+            <div class="container">
+                <h2>Skill Order Talon</h2>
+                <div class="skill">
+                  <div class="box">Q</div>
+                  <div class="box">1</div>
+                  <div class="box">2</div>
+                  <div class="box">3</div>
+                  <div class="box">4</div>
+                  <div class="box">5</div>
+                  <div class="box">6</div>
+                  <div class="box">7</div>
+                  <div class="box">8</div>
+                  <div class="box">9</div>
+                  <div class="box">10</div>
+                  <div class="box">11</div>
+                  <div class="box">12</div>
+                  <div class="box">13</div>
+                  <div class="box">14</div>
+                  <div class="box">15</div>
+                </div>
+              </div>
+        </section>
+
+
         <section class="skills">
             <div class="container">
                 <h2>Abilities</h2>
@@ -146,7 +171,6 @@ import BaseLayout from "./BaseLayout.astro"
                     </div>
                 </div>
             </div>
-    </div>
         </section>
     </div>
 </BaseLayout>
@@ -242,6 +266,27 @@ import BaseLayout from "./BaseLayout.astro"
         background-color: #172039;
     }
 
+        /* skill order */
+    .skill-one {
+        display: flex;
+        gap: 10px;
+        margin: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box {
+        font-size: 13px;
+        width: 20px;
+        height: 20px;
+        background-color: #7b6ce7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 25%;
+        color: #fff;
+    }
+
     /* Styl dla średnich ekranów (tablety) */
 @media (max-width: 768px) {
     .champion-container {
@@ -317,5 +362,6 @@ import BaseLayout from "./BaseLayout.astro"
     h2 {
         font-size: 22px;
     }
+
 }
 </style>

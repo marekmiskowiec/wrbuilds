@@ -1,0 +1,60 @@
+.container {
+    background-color: #172039;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+  }
+
+  a {
+    margin: 10px 7px;
+  }
+  
+  .box {
+    width: 150px;
+    height: 150px;
+    background: lightcoral;
+
+    position: relative;
+    overflow: hidden;
+  }
+
+
+  .champion-image {
+    position: relative;
+  }
+
+  .champion-image img {
+    width: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+
+  }
+
+  .champion-image:hover img {
+    transform: scale(1.5);
+  }
+
+  .champion-name {
+    position: absolute;
+    color: white;
+    font-size: 17px;
+    background-color: rgb(40, 14, 232);
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    text-transform: uppercase;
+    word-spacing: -2px;
+  }
+
+  /* search bar */
+  .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-bar input {
+    height: 50px;
+    width: 50%;
+  }

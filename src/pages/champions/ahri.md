@@ -3,7 +3,7 @@ layout: ../../layouts/ChampionLayout.astro
 title: "ahri"
 description: "descr"
 author: "Lexiw"
-role: ["Solo", "Jungle"]
+role: ["Mid"]
 tier: "S+"
 image: "/champions/ahri.png"
 ---

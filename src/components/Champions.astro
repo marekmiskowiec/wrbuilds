@@ -1,72 +1,11 @@
 ---
+import './Champions.css'
 const allChampions = await Astro.glob("../pages/champions/*.md");
+
+import SearchChampions from '../components/SearchFilter.jsx';
 ---
-
-<style>
-  .container {
-    background-color: #172039;
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-  }
-
-  a {
-    margin: 10px 7px;
-  }
-  
-  .box {
-    width: 150px;
-    height: 150px;
-    background: lightcoral;
-
-    position: relative;
-    overflow: hidden;
-  }
-
-
-  .champion-image {
-    position: relative;
-  }
-
-  .champion-image img {
-    width: 100%;
-    object-fit: cover;
-    transition: transform .5s ease;
-
-  }
-
-  .champion-image:hover img {
-    transform: scale(1.5);
-  }
-
-  .champion-name {
-    position: absolute;
-    color: white;
-    font-size: 17px;
-    background-color: rgb(40, 14, 232);
-    width: 100%;
-    text-align: center;
-    bottom: 0;
-    text-transform: uppercase;
-    word-spacing: -2px;
-  }
-</style>
-
 <section class="champions">
   <div class="container">
-    {
-      allChampions.map((champion) => (
-        <a href={"/champions/" + champion.frontmatter.title}>
-          <div class="box">
-            <div class="champion-image">
-              <img src={champion.frontmatter.image} />
-            </div>
-            <div class="champion-name">{champion.frontmatter.title}</div>
-          </div>
-        </a>
-      ))
-    }
+    <SearchChampions allChampions={allChampions} client:load />
   </div>
 </section>
