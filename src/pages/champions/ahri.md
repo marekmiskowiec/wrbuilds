@@ -5,5 +5,4 @@ description: "descr"
 author: "Lexiw"
 role: ["Mid"]
 tier: "S+"
-image: "/champions/ahri.png"
 ---

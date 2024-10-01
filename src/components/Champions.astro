@@ -1,9 +1,10 @@
 ---
-import './Champions.css'
+import "./Champions.css";
 const allChampions = await Astro.glob("../pages/champions/*.md");
 
-import SearchChampions from '../components/SearchFilter.jsx';
+import SearchChampions from "./SearchFilter.jsx";
 ---
+
 <section class="champions">
   <div class="container">
     <SearchChampions allChampions={allChampions} client:load />

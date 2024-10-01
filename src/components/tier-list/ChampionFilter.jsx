@@ -12,7 +12,8 @@ const ChampionFilter = ({ champions, folder, filter_type }) => {
   };
 
   return (
-    <div>
+    <div className="tier-list-container">
+      <h2 class="page-title">Champion Tier List Patch 5.2B</h2>
       <div className="role-buttons">
         {roles.map((role) => (
           <button
@@ -32,10 +33,17 @@ const ChampionFilter = ({ champions, folder, filter_type }) => {
             {filterChampionsByRole(champions[tier], selectedRole).map(
               (champion) => (
                 <div className="box" key={champion.name}>
-                  <img
-                    src={`/${folder}/${champion.name}.webp`}
-                    alt={champion.name}
-                  />
+                  <div className="champion-image">
+                    <img
+                      src={`/${folder}/${champion.name}.webp`}
+                      alt={champion.name}
+                    />
+                  </div>
+                  <div className="champion-name">
+                    {champion.title
+                      ? champion.title
+                      : champion.name.toUpperCase()}
+                  </div>
                 </div>
               )
             )}

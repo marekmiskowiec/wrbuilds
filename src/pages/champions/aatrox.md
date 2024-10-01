@@ -5,7 +5,6 @@ description: "the Darkin Blade"
 author: "Lexiw"
 role: ["Baron", "Jungle"]
 tier: "S+"
-image: "/champions/aatrox.png"
 video:
 skilldescription1:
   "                Aatrox enhances his next attack every few seconds to deal bonus physical damage and heals himself for the same amount of damage done. The cooldown of Aatrox's passive is reduced by a few seconds when Aatrox hits a champion or large monster with an attack or ability.

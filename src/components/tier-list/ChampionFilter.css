@@ -12,7 +12,8 @@
 
 .container {
   display: flex;
-  margin: 20px;
+
+  padding: 25px 25px 25px 25px;
   justify-content: center;
 }
 
@@ -38,26 +39,51 @@
   align-items: center;
 }
 
-.box img {
-  object-fit: cover;
-  width: 100%;
-  border-radius: 50%;
-}
-
 .box {
-  width: 75px;
-  height: 75px;
-  background-color: lightcoral;
+  width: 65px;
+  height: 150px;
+  /* background-color: lightcoral; */
   margin: 10px;
-  border-radius: 50%;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  margin-right: 50px;
 }
 
 .btn {
   background-color: lightblue;
   padding: 10px;
   border-radius: 5px;
+}
+
+.champion-image {
+  flex: 4;
+}
+
+.champion-image img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 50%;
+  border: 5px solid yellow;
+}
+
+.champion-name {
+  color: white;
+  font-size: 20px;
+  flex: 4;
+  text-align: center;
+  text-wrap: balance;
+  display: flex;
+  align-items: start;
+}
+
+.tier-list-container {
+  background-color: rgb(27, 24, 110);
+  min-height: 100vh;
+}
+
+.page-title {
+  color: white;
 }

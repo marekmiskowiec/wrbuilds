@@ -1,80 +1,126 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ChampionFilter from "../components/ChampionFilter.jsx";
+import ChampionFilter from "../components/tier-list/ChampionFilter.jsx";
 
 const champions = {
   s: [
     /* domination */
-    { name: "sudden-impact", roles: ["domination"] },
-    { name: "eyeball-collector", roles: ["domination"] },
+    { name: "sudden-impact", roles: ["domination"], title: ["Sudden Impact"] },
+    {
+      name: "eyeball-collector",
+      roles: ["domination"],
+      title: ["Eyeball Collector"],
+    },
     /* inspiration */
-    { name: "glacial-augment", roles: ["inspiration"] },
-    { name: "hextech-flashtraption", roles: ["inspiration"] },
+    {
+      name: "glacial-augment",
+      roles: ["inspiration"],
+      title: ["Glacial Augment"],
+    },
+    {
+      name: "hextech-flashtraption",
+      roles: ["inspiration"],
+      title: ["Hextech Flashtraption"],
+    },
     /* precision */
-    { name: "legend-bloodline", roles: ["precision"] },
-    { name: "coup-de-grace", roles: ["precision"] },
-    { name: "legend-alacrity", roles: ["precision"] },
+    {
+      name: "legend-bloodline",
+      roles: ["precision"],
+      title: ["Legend: Bloodline"],
+    },
+    { name: "coup-de-grace", roles: ["precision"], title: ["Coup De Grace"] },
+    {
+      name: "legend-alacrity",
+      roles: ["precision"],
+      title: ["Legend: Alacrity"],
+    },
     /* resolve */
-    { name: "second-wind", roles: ["resolve"] },
-    { name: "nullifying-orb", roles: ["resolve"] },
+    { name: "second-wind", roles: ["resolve"], title: ["Second Wind"] },
+    { name: "nullifying-orb", roles: ["resolve"], title: ["Nullifying Orb"] },
   ],
   a: [
     /* domination */
-    { name: "cheap-shot", roles: ["domination"] },
+    { name: "cheap-shot", roles: ["domination"], title: ["Cheap Shot"] },
     /* inspiration */
-    { name: "nimbus-cloak", roles: ["inspiration"] },
-    { name: "sweet-tooth", roles: ["inspiration"] },
+    { name: "nimbus-cloak", roles: ["inspiration"], title: ["Nimbus Cloak"] },
+    { name: "sweet-tooth", roles: ["inspiration"], title: ["Sweet Tooth"] },
     /* precision */
-    { name: "brutal", roles: ["precision"] },
-    { name: "legend-tenacity", roles: ["precision"] },
-    { name: "giant-slayer", roles: ["precision"] },
+    { name: "brutal", roles: ["precision"], title: ["Brutal"] },
+    {
+      name: "legend-tenacity",
+      roles: ["precision"],
+      title: ["Legend: Tenacity"],
+    },
+    { name: "giant-slayer", roles: ["precision"], title: ["Giant Slayer"] },
     /* resolve */
-    { name: "overgrowth", roles: ["resolve"] },
-    { name: "bone-plating", roles: ["resolve"] },
+    { name: "overgrowth", roles: ["resolve"], title: ["Overgrowth"] },
+    { name: "bone-plating", roles: ["resolve"], title: ["Bone Plating"] },
   ],
   b: [
     /* domination */
-    { name: "mark-of-the-weak", roles: ["domination"] },
-    { name: "ingenious-hunter", roles: ["domination"] },
-    { name: "empowered-attack", roles: ["domination"] },
-    { name: "scorch", roles: ["domination"] },
+    {
+      name: "mark-of-the-weak",
+      roles: ["domination"],
+      title: ["Mark Of The Weak"],
+    },
+    {
+      name: "ingenious-hunter",
+      roles: ["domination"],
+      title: ["Ingenious Hunter"],
+    },
+    {
+      name: "empowered-attack",
+      roles: ["domination"],
+      title: ["Empowered Attack"],
+    },
+    { name: "scorch", roles: ["domination"], title: ["Scorch"] },
     /* inspiration */
-    { name: "manaflow-band", roles: ["inspiration"] },
-    { name: "pathfinder", roles: ["inspiration"] },
-    { name: "demolish", roles: ["inspiration"] },
+    { name: "manaflow-band", roles: ["inspiration"], title: ["Manaflow Band"] },
+    { name: "pathfinder", roles: ["inspiration"], title: ["Pathfinder"] },
+    { name: "demolish", roles: ["inspiration"], title: ["Demolish"] },
     /* precision */
-    { name: "gathering-storm", roles: ["precision"] },
+    {
+      name: "gathering-storm",
+      roles: ["precision"],
+      title: ["Gathering Storm"],
+    },
     /* resolve */
-    { name: "perseverance", roles: ["resolve"] },
-    { name: "courage-of-the-colossus", roles: ["resolve"] },
-    { name: "font-of-life", roles: ["resolve"] },
+    { name: "perseverance", roles: ["resolve"], title: ["Perveserance"] },
+    {
+      name: "courage-of-the-colossus",
+      roles: ["resolve"],
+      title: ["Courage Of The Colossus"],
+    },
+    { name: "font-of-life", roles: ["resolve"], title: ["Font Of Life"] },
   ],
   c: [
     /* domination */
-    { name: "psychic-wave", roles: ["domination"] },
-    { name: "zombie-ward", roles: ["domination"] },
+    { name: "psychic-wave", roles: ["domination"], title: ["Psychic Wave"] },
+    { name: "zombie-ward", roles: ["domination"], title: ["Zombie Ward"] },
     /* inspiration */
-    { name: "item-crafting", roles: ["inspiration"] },
-    { name: "futures-market", roles: ["inspiration"] },
+    { name: "item-crafting", roles: ["inspiration"], title: ["Item Crafting"] },
+    {
+      name: "futures-market",
+      roles: ["inspiration"],
+      title: ["Futures Market"],
+    },
     /* precision */
-    { name: "last-stand", roles: ["precision"] },
-    { name: "triumph", roles: ["precision"] },
+    { name: "last-stand", roles: ["precision"], title: ["Last Stand"] },
+    { name: "triumph", roles: ["precision"], title: ["Triumph"] },
     /* resolve */
-    { name: "revitalize", roles: ["resolve"] },
-    { name: "onslaught", roles: ["resolve"] },
+    { name: "revitalize", roles: ["resolve"], title: ["Revitalize"] },
+    { name: "onslaught", roles: ["resolve"], title: ["Onslaught"] },
   ],
   d: [
     /* domination */
-    { name: "shield-bash", roles: ["domination"] },
+    { name: "shield-bash", roles: ["domination"], title: ["Shield Bash"] },
     /* resolve */
-    { name: "loyalty", roles: ["resolve"] },
+    { name: "loyalty", roles: ["resolve"], title: ["Loyalty"] },
   ],
 };
 ---
 
 <BaseLayout>
-  <h2 class="page-title">Champion Tier List Patch 5.2B</h2>
-
   <!-- Importujemy komponent filtrowania -->
   <ChampionFilter
     champions={champions}

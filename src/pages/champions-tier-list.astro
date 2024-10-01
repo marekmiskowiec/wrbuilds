@@ -1,56 +1,56 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ChampionFilter from "../components/ChampionFilter.jsx";
+import ChampionFilter from "../components/tier-list/ChampionFilter.jsx";
 
 const champions = {
   op: [
     /* baron */
-    { name: "darius", roles: ["baron"] },
-    { name: "renekton", roles: ["baron"] },
-    { name: "riven", roles: ["baron"] },
-    { name: "aatrox", roles: ["baron"] },
-    { name: "mordekaiser", roles: ["baron"] },
-    { name: "ornn", roles: ["baron"] },
-    { name: "camille", roles: ["baron"] },
+    { name: "darius", roles: ["baron"], title: "Darius" },
+    { name: "renekton", roles: ["baron"], title: "Renekton" },
+    { name: "riven", roles: ["baron"], title: "Riven" },
+    { name: "aatrox", roles: ["baron"], title: "Aatrox" },
+    { name: "mordekaiser", roles: ["baron"], title: "Mordekaiser" },
+    { name: "ornn", roles: ["baron"], title: "Ornn" },
+    { name: "camille", roles: ["baron"], title: "Camille" },
     /* jungle */
-    { name: "rengar", roles: ["jungle"] },
-    { name: "gragas", roles: ["jungle"] },
-    { name: "vi", roles: ["jungle"] },
-    { name: "lee-sin", roles: ["jungle"] },
+    { name: "rengar", roles: ["jungle"], title: "Rengar" },
+    { name: "gragas", roles: ["jungle"], title: "Gragas" },
+    { name: "vi", roles: ["jungle"], title: "Vi" },
+    { name: "lee-sin", roles: ["jungle"], title: "Lee Sin" },
     /* mid */
-    { name: "syndra", roles: ["mid"] },
-    { name: "kassadin", roles: ["mid"] },
-    { name: "morgana", roles: ["mid"] },
-    { name: "yone", roles: ["mid"] },
+    { name: "syndra", roles: ["mid"], title: "Syndra" },
+    { name: "kassadin", roles: ["mid"], title: "Kassadin" },
+    { name: "morgana", roles: ["mid"], title: "Morgana" },
+    { name: "yone", roles: ["mid"], title: "Yone" },
     /* dragon */
-    { name: "varus", roles: ["dragon"] },
-    { name: "ezreal", roles: ["dragon"] },
-    { name: "xayah", roles: ["dragon"] },
-    { name: "kalista", roles: ["dragon"] },
+    { name: "varus", roles: ["dragon"], title: "Varus" },
+    { name: "ezreal", roles: ["dragon"], title: "Ezreal" },
+    { name: "xayah", roles: ["dragon"], title: "Xayah" },
+    { name: "kalista", roles: ["dragon"], title: "Kalista" },
     /* support */
-    { name: "milio", roles: ["support"] },
-    { name: "maokai", roles: ["support"] },
-    { name: "lulu", roles: ["support"] },
+    { name: "milio", roles: ["support"], title: "Milio" },
+    { name: "maokai", roles: ["support"], title: "Maokai" },
+    { name: "lulu", roles: ["support"], title: "Lulu" },
   ],
   s: [
     /* baron */
-    { name: "kayle", roles: ["baron"] },
-    { name: "jax", roles: ["baron"] },
-    { name: "fiora", roles: ["baron"] },
-    { name: "wukong", roles: ["baron"] },
-    { name: "jayce", roles: ["baron"] },
-    { name: "gragas", roles: ["baron"] },
-    { name: "akali", roles: ["baron"] },
-    { name: "sett", roles: ["baron"] },
-    { name: "maokai", roles: ["baron"] },
-    { name: "yasuo", roles: ["baron"] },
+    { name: "kayle", roles: ["baron"], title: "Kayle" },
+    { name: "jax", roles: ["baron"], title: "Jax" },
+    { name: "fiora", roles: ["baron"], title: "Fiora" },
+    { name: "wukong", roles: ["baron"], title: "Wukong" },
+    { name: "jayce", roles: ["baron"], title: "Jayce" },
+    { name: "gragas", roles: ["baron"], title: "Gragas" },
+    { name: "akali", roles: ["baron"], title: "Akali" },
+    { name: "sett", roles: ["baron"], title: "Sett" },
+    { name: "maokai", roles: ["baron"], title: "Maokai" },
+    { name: "yasuo", roles: ["baron"], title: "Yasuo" },
     /* jungle */
-    { name: "kayle", roles: ["jungle"] },
-    { name: "wukong", roles: ["jungle"] },
-    { name: "riven", roles: ["jungle"] },
-    { name: "viego", roles: ["jungle"] },
-    { name: "xin-zhao", roles: ["jungle"] },
-    { name: "khazix", roles: ["jungle"] },
+    { name: "kayle", roles: ["jungle"], title: "Kayle" },
+    { name: "wukong", roles: ["jungle"], title: "Wukong" },
+    { name: "riven", roles: ["jungle"], title: "Riven" },
+    { name: "viego", roles: ["jungle"], title: "Viego" },
+    { name: "xin-zhao", roles: ["jungle"], title: "Xin Zhao" },
+    { name: "khazix", roles: ["jungle"], title: "Kha'Zix" },
     { name: "darius", roles: ["jungle"] },
     { name: "graves", roles: ["jungle"] },
     { name: "nunu", roles: ["jungle"] },
@@ -197,31 +197,29 @@ const champions = {
   ],
   c: [
     /* baron */
-    { name: "singed", roles: ["baron"] },
+    { name: "singed", roles: ["baron"], title: "Singed" },
     /* jungle */
-    { name: "nasus", roles: ["jungle"] },
-    { name: "irelia", roles: ["jungle"] },
+    { name: "nasus", roles: ["jungle"], title: "Nasus" },
+    { name: "irelia", roles: ["jungle"], title: "Irelia" },
     /* mid */
-    { name: "brand", roles: ["mid"] },
+    { name: "brand", roles: ["mid"], title: "Brand" },
     /* dragon */
-    { name: "senna", roles: ["dragon"] },
+    { name: "senna", roles: ["dragon"], title: "Senna" },
     /* support */
-    { name: "malphite", roles: ["support"] },
-    { name: "swain", roles: ["support"] },
+    { name: "malphite", roles: ["support"], title: "Malphite" },
+    { name: "swain", roles: ["support"], title: "Swain" },
   ],
   d: [
     /* jungle */
-    { name: "twitch", roles: ["jungle"] },
+    { name: "twitch", roles: ["jungle"], title: "Twitch" },
     /* dragon */
-    { name: "akshan", roles: ["dragon"] },
-    { name: "kindred", roles: ["dragon"] },
+    { name: "akshan", roles: ["dragon"], title: "Akshan" },
+    { name: "kindred", roles: ["dragon"], title: "Kindred" },
   ],
 };
 ---
 
 <BaseLayout>
-  <h2 class="page-title">Champion Tier List Patch 5.2B</h2>
-
   <!-- Importujemy komponent filtrowania -->
   <ChampionFilter
     champions={champions}

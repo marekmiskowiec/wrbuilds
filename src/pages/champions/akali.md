@@ -1,6 +1,5 @@
 ---
-title: "Akali"
+title: "akali"
 pubDate: 2022-07-01
-image: "/champions/akali.png"
 role: ["Mid"]
 ---

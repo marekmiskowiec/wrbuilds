@@ -1,9 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ChampionFilter from "../components/ChampionFilter.jsx";
+import ChampionFilter from "../components/tier-list/ChampionFilter.jsx";
 
 const champions = {
   s: [
+    /* boots */
+    { name: "mercurys-treads", roles: ["boots"], title: "Mercury's Treads" },
+    { name: "plated-steelcaps", roles: ["boots"], title: "Plated Steelcaps" },
     /* enchant */
     { name: "stasis", roles: ["enchant"] },
   ],
@@ -32,13 +35,18 @@ const champions = {
 ---
 
 <BaseLayout>
-  <h2 class="page-title">Champion Tier List Patch 5.2B</h2>
-
   <!-- Importujemy komponent filtrowania -->
   <ChampionFilter
     champions={champions}
     folder="items"
-    filter_type={["ad/physical", "ap/magical", "tank", "boots", "enchant"]}
+    filter_type={[
+      "all",
+      "ad/physical",
+      "ap/magical",
+      "tank",
+      "boots",
+      "enchant",
+    ]}
     client:load
   />
 </BaseLayout>
