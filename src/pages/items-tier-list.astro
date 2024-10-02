@@ -2,51 +2,215 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ChampionFilter from "../components/tier-list/ChampionFilter.jsx";
 
-const champions = {
+const items = {
   s: [
+    /* ad */
+    { name: "youmuus-ghostblade", roles: ["ad"], title: "Youmuu's Ghostblade" },
+    { name: "trinity-force", roles: ["ad"], title: "Trinity Forcce" },
+    { name: "mortal-reminder", roles: ["ad"], title: "Mortal Reminder" },
+    { name: "terminus", roles: ["ad"], title: "Terminus" },
+    /* ap */
+    { name: "rabadons-deathcap", roles: ["ap"], title: "Rabadon's Deathcap" },
+    { name: "infinity-orb", roles: ["ap"], title: "Infinity Orb" },
+    /* tank */
+    { name: "warmogs-armor", roles: ["tank"], title: "Warmog's Armor" },
+    { name: "heartsteel", roles: ["tank"], title: "Heartsteel" },
     /* boots */
     { name: "mercurys-treads", roles: ["boots"], title: "Mercury's Treads" },
     { name: "plated-steelcaps", roles: ["boots"], title: "Plated Steelcaps" },
     /* enchant */
-    { name: "stasis", roles: ["enchant"] },
+    { name: "stasis", roles: ["enchant"], title: "Stasis" },
+    /* support */
+    { name: "ancient-coin", roles: ["support"], title: "Ancient Coin" },
+    { name: "relic-shield", roles: ["support"], title: "Relic Shield" },
   ],
   a: [
+    /* ad */
+    { name: "black-cleaver", roles: ["ad"], title: "Black Cleaver" },
+    { name: "edge-of-night", roles: ["ad"], title: "Edge of Night" },
+    { name: "divine-sunderer", roles: ["ad"], title: "Divine Sunderer" },
+    { name: "sundered-sky", roles: ["ad"], title: "Sundered Sky" },
+    { name: "bloodthirster", roles: ["ad"], title: "Bloodthirster" },
+    /* ap */
+    {
+      name: "crown-of-the-shattered-queen",
+      roles: ["ap"],
+      title: "Crown of the Shattered Queen",
+    },
+    { name: "ludens-echo", roles: ["ap"], title: "Luden's Echo" },
+    { name: "ardent-censer", roles: ["ap"], title: "Ardent Censer" },
+    { name: "harmonic-echo", roles: ["ap"], title: "Harmonic Echo" },
+    { name: "liandrys-torment", roles: ["ap"], title: "Liandry's Torment" },
+    /* boots */
+    { name: "boots-of-mana", roles: ["boots"], title: "Boots of Mana" },
+    {
+      name: "gluttonous-greaves",
+      roles: ["boots"],
+      title: "Gluttonous Greaves",
+    },
+    {
+      name: "berserkers-greaves",
+      roles: ["boots"],
+      title: "Berserker's Greaves",
+    },
     /* enchant */
-    { name: "gargoyle", roles: ["enchant"] },
-    { name: "veil", roles: ["enchant"] },
-    { name: "quicksilver", roles: ["enchant"] },
-    { name: "protobelt", roles: ["enchant"] },
+    { name: "gargoyle", roles: ["enchant"], title: "Gargoyle" },
+    { name: "veil", roles: ["enchant"], title: "Veil" },
+    { name: "quicksilver", roles: ["enchant"], title: "Quicksilver" },
+    { name: "protobelt", roles: ["enchant"], title: "Protobelt" },
+    /* support */
+    { name: "spectral-sickle", roles: ["support"], title: "Spectral Sickle" },
   ],
-  b: [/* enchant */ { name: "locket", roles: ["enchant"] }],
+  b: [
+    /* ad */
+    { name: "magnetic-blaster", roles: ["ad"], title: "Magnetic Blaster" },
+    { name: "wits-end", roles: ["ad"], title: "Wit's End" },
+    { name: "serpents-fang", roles: ["ad"], title: "Serpent's Fang" },
+    { name: "infinity-edge", roles: ["ad"], title: "Infinity Edge" },
+    { name: "solari-chargeblade", roles: ["ad"], title: "Solari Chargeblade" },
+    { name: "deaths-dance", roles: ["ad"], title: "Death's Dance" },
+    { name: "spear-of-shojin", roles: ["ad"], title: "Spear of Shojin" },
+    { name: "titanic-hydra", roles: ["ad"], title: "Titanic Hydra" },
+    { name: "stormrazor", roles: ["ad"], title: "Stormrazor" },
+    { name: "maw-of-malmortius", roles: ["ad"], title: "Maw of Malmortius" },
+    {
+      name: "duskblade-of-draktharr",
+      roles: ["ad"],
+      title: "Duskblade of Draktharr",
+    },
+    { name: "eclipse", roles: ["ad"], title: "Eclipse" },
+    { name: "immortal-shieldbow", roles: ["ad"], title: "Immortal Shieldbow" },
+    { name: "runaans-hurricane", roles: ["ad"], title: "Runaan's Hurricane" },
+    {
+      name: "blade-of-the-ruined-king",
+      roles: ["ad"],
+      title: "Blade of the Ruined King",
+    },
+    /* ap */
+    {
+      name: "lich-bane",
+      roles: ["ap"],
+      title: "Lich Bane",
+    },
+    { name: "ludens-echo", roles: ["ap"], title: "Luden's Echo" },
+    {
+      name: "awakened-soulstealer",
+      roles: ["ap"],
+      title: "Awakened Soulstealer",
+    },
+    { name: "morellonomicon", roles: ["ap"], title: "Morellonomicon" },
+    { name: "riftmaker", roles: ["ap"], title: "Riftmaker" },
+    { name: "horizon-focus", roles: ["ap"], title: "Horizon Focus" },
+    /* boots */
+    { name: "boots-of-outburst", roles: ["boots"], title: "Boots of Outburst" },
+    {
+      name: "ionian-boots-of-lucidity",
+      roles: ["boots"],
+      title: "Ionian Boots of Lucidity",
+    },
+    /* enchant */ { name: "locket", roles: ["enchant"], title: "Locket" },
+  ],
   c: [
+    /* ad */
+    { name: "the-collector", roles: ["ad"], title: "The Collector" },
+    { name: "manamune", roles: ["ad"], title: "Manamune" },
+    { name: "essence-reaver", roles: ["ad"], title: "Essence Reaver" },
+    {
+      name: "chempunk-chainsword",
+      roles: ["ad"],
+      title: "Chempunk Chainsword",
+    },
+    { name: "nashors-tooth", roles: ["ad"], title: "Nashor's Tooth" },
+    { name: "phantom-dancer", roles: ["ad"], title: "Phantom Dancer" },
+    { name: "seryldas-grudge", roles: ["ad"], title: "Serylda's Grudge" },
+    { name: "navori-quickblades", roles: ["ad"], title: "Navori Quickblades" },
+    /* ap */
+    {
+      name: "rylais-crystal-scepter",
+      roles: ["ap"],
+      title: "Rylai's Crystal Scepter",
+    },
+    {
+      name: "archangels-staff",
+      roles: ["ap"],
+      title: "Archangel's Staff",
+    },
+    { name: "psychic-projector", roles: ["ap"], title: "Psychic Projector" },
+    { name: "cosmic-drive", roles: ["ap"], title: "Cosmic Drive" },
+    { name: "rod-of-ages", roles: ["ap"], title: "Rod of Ages" },
+    { name: "imperial-mandate", roles: ["ap"], title: "Imperial Mandate" },
+    {
+      name: "crystalline-reflector",
+      roles: ["ap"],
+      title: "Crystalline Reflector",
+    },
+    /* boots */
+    { name: "boots-of-outburst", roles: ["boots"], title: "Boots of Outburst" },
+    {
+      name: "ionian-boots-of-lucidity",
+      roles: ["boots"],
+      title: "Ionian Boots of Lucidity",
+    },
     /* enchant */
-    { name: "glorious", roles: ["enchant"] },
-    { name: "revitalizing-grail", roles: ["enchant"] },
-    { name: "magnetron", roles: ["enchant"] },
-    { name: "meteor", roles: ["enchant"] },
+    { name: "glorious", roles: ["enchant"], title: "Glorious" },
+    {
+      name: "revitalizing-grail",
+      roles: ["enchant"],
+      title: "Revitalizing Grail",
+    },
+    { name: "magnetron", roles: ["enchant"], title: "Magnetron" },
+    { name: "meteor", roles: ["enchant"], title: "Meteor" },
   ],
   d: [
+    /* ap */
+    {
+      name: "mejais-soulstealer",
+      roles: ["ap"],
+      title: "Mejai's Soulstealer",
+    },
     /* enchant */
-    { name: "teleport", roles: ["enchant"] },
-    { name: "repulsor", roles: ["enchant"] },
-    { name: "ravenous-hydra", roles: ["enchant"] },
+    { name: "teleport", roles: ["enchant"], title: "Teleport" },
+    { name: "repulsor", roles: ["enchant"], title: "Repulsor" },
+    { name: "ravenous-hydra", roles: ["enchant"], title: "Ravenous Hydra" },
   ],
 };
 ---
 
 <BaseLayout>
-  <!-- Importujemy komponent filtrowania -->
   <ChampionFilter
-    champions={champions}
+    champions={items}
     folder="items"
-    filter_type={[
-      "all",
-      "ad/physical",
-      "ap/magical",
-      "tank",
-      "boots",
-      "enchant",
-    ]}
+    filter_type={["all", "ad", "ap", "tank", "boots", "enchant", "support"]}
     client:load
   />
+
+  <div class="champion-difficulty">
+    <p>intense</p>
+    <p>hard</p>
+    <p>average</p>
+    <p>simple</p>
+  </div>
+  <div class="tier-description">
+    <p>
+      S+ Tier Currently the best champions in Wild Rift! These champions are
+      very hard to counter and have the ability to carry and win every game.
+    </p>
+    <p>
+      S Tier These champions are superb at what they do. They are very powerful
+      and effective and have the potential to carry games.
+    </p>
+    <p>
+      A Tier Strong champions. In the right situation, these champions can
+      perform very well.
+    </p>
+    <p>
+      B Tier Viable champions. In the right situation, these champions can
+      perform very well. However, the impact of these champion is often lower
+      than the above.
+    </p>
+    <p>
+      C Tier These champions don't have many benefits when playing them. Their
+      impact is often lower than those in higher tiers.
+    </p>
+  </div>
 </BaseLayout>
