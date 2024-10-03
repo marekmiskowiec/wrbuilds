@@ -2,6 +2,7 @@
 layout: ../../layouts/ChampionLayout.astro
 title: "aatrox"
 description: "the Darkin Blade"
+image: ../champions/aatrox.webp
 author: "Lexiw"
 role: ["Baron", "Jungle"]
 tier: "S+"
@@ -41,8 +42,22 @@ builds:
   runes: ["aery", "scorch", "font-of-life", "nullifying-orb", "giant-slayer"]
   summoners: ["flash", "ignite"]
   skills:
-    s1: []
-    s2: []
-    s3: []
-    s4: []
+    [
+      "s1",
+      "s2",
+      "s3",
+      "s1",
+      "s4",
+      "s1",
+      "s1",
+      "s2",
+      "s4",
+      "s2",
+      "s2",
+      "s3",
+      "s4",
+      "s3",
+      "s3",
+    ]
+  skillsorder: "S4 -> S1 -> S2 -> S3"
 ---

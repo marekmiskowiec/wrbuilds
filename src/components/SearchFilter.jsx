@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./SearchFilter.css";
 
 export default function SearchChampions({ allChampions }) {
   const [searchTerm, setSearchTerm] = useState("");

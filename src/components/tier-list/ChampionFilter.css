@@ -21,6 +21,7 @@ body {
   letter-spacing: 5px;
   color: white;
   margin: 20px 0;
+  text-transform: uppercase;
 }
 
 .container {
@@ -65,6 +66,7 @@ body {
   background-color: #e2d2d2;
   padding: 20px;
   border-radius: 5px;
+  text-transform: uppercase;
 }
 
 .champion-image {
@@ -91,4 +93,40 @@ body {
 
 .role-buttons {
   margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 480px) {
+  .tier-list-container {
+    padding: 0 25px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .btn {
+    padding: 5px;
+  }
+
+  .tier-box {
+    flex: 1;
+  }
+
+  .champion-box {
+    flex: 10;
+  }
+
+  .box {
+    width: 65px;
+    height: 100px;
+    /* background-color: lightcoral; */
+    margin: 10px 0;
+    margin-right: 10px;
+}
+.container {
+  max-width: 100%;
+  flex-direction: column;
 }
