@@ -6,55 +6,64 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgb(27, 24, 110);
+}
+
+.tier-list-container {
+  margin-top: 20px;
+  padding: 0 50px;
+  margin: 0 auto;
+}
+
 .page-title {
-  text-align: center;
+  font-size: 40px;
+  letter-spacing: 5px;
+  color: white;
+  margin: 20px 0;
 }
 
 .container {
   display: flex;
-
-  padding: 25px 25px 25px 25px;
-  justify-content: center;
+  padding: 8px 0;
+  max-width: 70%;
 }
 
 .tier-box {
   flex: 2;
-
-  background-color: orange;
-
-  font-size: 50px;
+  background-color: rgb(255, 166, 0);
+  font-size: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .champion-box {
-  flex: 5;
-
-  background-color: purple;
-
+  flex: 6;
+  background-color: rgba(236, 20, 168, 0.501);
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  padding-left: 20px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
-
 .box {
   width: 65px;
-  height: 150px;
+  height: 110px;
   /* background-color: lightcoral; */
-  margin: 10px;
-
+  margin: 10px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-right: 50px;
+  margin-right: 25px;
 }
 
 .btn {
-  background-color: lightblue;
-  padding: 10px;
+  background-color: #e2d2d2;
+  padding: 20px;
   border-radius: 5px;
 }
 
@@ -71,7 +80,8 @@
 
 .champion-name {
   color: white;
-  font-size: 20px;
+  font-weight: bold;
+  font-size: 10px;
   flex: 4;
   text-align: center;
   text-wrap: balance;
@@ -79,11 +89,6 @@
   align-items: start;
 }
 
-.tier-list-container {
-  background-color: rgb(27, 24, 110);
-  min-height: 100vh;
-}
-
-.page-title {
-  color: white;
+.role-buttons {
+  margin: 20px 0;
 }

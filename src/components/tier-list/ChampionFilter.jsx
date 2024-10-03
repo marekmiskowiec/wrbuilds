@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./ChampionFilter.css";
+import "../../constants";
+import { CURRENT_PATCH } from "../../constants";
 
 const ChampionFilter = ({ champions, folder, filter_type }) => {
   const roles = filter_type;
@@ -13,7 +15,7 @@ const ChampionFilter = ({ champions, folder, filter_type }) => {
 
   return (
     <div className="tier-list-container">
-      <h2 class="page-title">Champion Tier List Patch 5.2B</h2>
+      <h2 class="page-title">Champion Tier List Patch {CURRENT_PATCH}</h2>
       <div className="role-buttons">
         {roles.map((role) => (
           <button
