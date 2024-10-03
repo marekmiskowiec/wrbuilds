@@ -1,4 +1,30 @@
 ---
+interface Build {
+  items: string[];
+  summoners: string[];
+  runes: string[];
+  skills: string[];
+  skillsorder: string;
+}
+
+interface Abilities {
+  passive: { video: string };
+  one: { video: string };
+  two: { video: string };
+  three: { video: string };
+  ult: { video: string };
+}
+
+interface Frontmatter {
+  title: string;
+  image: string;
+  description: string;
+  tier: string;
+  builds: Build;
+  abilities: Abilities;
+  skilldescription1: string;
+}
+
 const { frontmatter } = Astro.props;
 import data from "../data/champion-stats.json";
 
