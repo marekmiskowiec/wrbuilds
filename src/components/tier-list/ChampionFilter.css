@@ -125,8 +125,9 @@ body {
     /* background-color: lightcoral; */
     margin: 10px 0;
     margin-right: 10px;
-}
-.container {
-  max-width: 100%;
-  flex-direction: column;
+  }
+  .container {
+    max-width: 100%;
+    flex-direction: column;
+  }
 }

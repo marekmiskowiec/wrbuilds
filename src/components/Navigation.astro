@@ -2,14 +2,15 @@
   <div class="header__content">
     <a href="/" class="logo">WildriftGuides</a>
 
-
     <nav class="nav">
       <ul class="nav__list">
         <li class="nav__item">
           <a href="/" class="nav__link">Champions</a>
         </li>
         <li class="nav__item">
-          <a href="/champions-tier-list" class="nav__link">Champions Tier List</a>
+          <a href="/champions-tier-list" class="nav__link"
+            >Champions Tier List</a
+          >
         </li>
         <li class="nav__item">
           <a href="/items-tier-list" class="nav__link">Items Tier List</a>
@@ -23,7 +24,7 @@
       </ul>
     </nav>
     <div class="theme">
-      <img src="./theme/sun.png" alt="sun" id="icon" />
+      <img src="../theme/sun.png" alt="sun" id="icon" />
     </div>
 
     <div class="hamburger">
@@ -115,9 +116,9 @@
   }
 
   #icon {
-  width: 30px;
-  cursor: pointer;
-}
+    width: 30px;
+    cursor: pointer;
+  }
 
   .hamburger--open .bar:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
@@ -162,13 +163,16 @@
   const navEl = document.querySelector(".nav");
   const hamburgerEl = document.querySelector(".hamburger");
 
-  hamburgerEl.addEventListener("click", () => {
-    navEl.classList.toggle("nav--open");
-    hamburgerEl.classList.toggle("hamburger--open");
-  });
+  // Check if both elements exist before adding event listeners
+  if (hamburgerEl && navEl) {
+    hamburgerEl.addEventListener("click", () => {
+      navEl.classList.toggle("nav--open");
+      hamburgerEl.classList.toggle("hamburger--open");
+    });
 
-  navEl?.addEventListener("click", () => {
-    navEl.classList.remove("nav--open");
-    hamburgerEl.classList.remove("hamburger--open");
-  });
+    navEl.addEventListener("click", () => {
+      navEl.classList.remove("nav--open");
+      hamburgerEl.classList.remove("hamburger--open");
+    });
+  }
 </script>
