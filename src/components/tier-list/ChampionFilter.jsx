@@ -18,7 +18,7 @@ const ChampionFilter = ({ champions, folder, filter_type }) => {
       <h2 class="page-title">
         {folder} Tier List Patch {CURRENT_PATCH}
       </h2>
-      <h2 class="page-title">Last update: 03.10.2024</h2>
+      <h2 className="page-title">Last update: 03.10.2024</h2>
       <div className="role-buttons">
         {roles.map((role) => (
           <button

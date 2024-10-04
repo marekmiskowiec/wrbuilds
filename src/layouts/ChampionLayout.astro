@@ -51,7 +51,7 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
       </div>
     </section>
 
-    <section class="stats">
+    <!-- <section class="stats">
       <div class="container">
         <h2>Basic statistics</h2>
         <h1>{data[frontmatter.title].title} - {data[frontmatter.title].id}</h1>
@@ -67,14 +67,14 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
         </p>
         <p><strong>Stats:</strong>{data[frontmatter.title].stats.hp_base}</p>
       </div>
-    </section>
+    </section> -->
 
     <section class="items">
       <div class="container">
         <h2>{frontmatter.title} - item build</h2>
         <div class="row">
           {
-            frontmatter.builds.items.map((item) => (
+            frontmatter.builds.items.map((item: string) => (
               <div class="item-container">
                 <div class="item-image">
                   <img src={`/items/${item}.webp`} alt="" />
@@ -91,7 +91,7 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
           <h2>{frontmatter.title} - summoner spells</h2>
           <div class="row">
             {
-              frontmatter.builds.summoners.map((summoner) => (
+              frontmatter.builds.summoners.map((summoner: string) => (
                 <div class="item-container">
                   <div class="item-image">
                     <img src={`/summoners/${summoner}.webp`} alt="" />
@@ -111,7 +111,7 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
           <h2>{frontmatter.title} - runes</h2>
           <div class="row">
             {
-              frontmatter.builds.runes.map((rune) => (
+              frontmatter.builds.runes.map((rune: string) => (
                 <div class="item-container">
                   <div class="item-image">
                     <img src={`/runes/${rune}.webp`} alt="" />
@@ -139,7 +139,7 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
           {
             skillOrder.map((order) => (
               <div class="skills-order">
-                {skills.map((skill) =>
+                {skills.map((skill: string) =>
                   skill === order ? (
                     <div class="box" style="background-color: green;" />
                   ) : (
@@ -159,13 +159,12 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
           <h2>Passive</h2>
           <div class="skill">
             <div class="skill-video">
-              <video
-                src={frontmatter.abilities.passive.video}
-                type="video/webm"
-                autoplay
-                muted
-                loop
-                playsinline></video>
+              <video autoplay muted loop playsinline>
+                <source
+                  src={frontmatter.abilities.passive.video}
+                  type="video/mp4"
+                />
+              </video>
             </div>
             <div class="skill-description">
               <p>{frontmatter.skilldescription1}</p>
@@ -176,13 +175,12 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
           <h2>Skill one</h2>
           <div class="skill">
             <div class="skill-video">
-              <video
-                src={frontmatter.abilities.one.video}
-                type="video/webm"
-                autoplay
-                muted
-                loop
-                playsinline></video>
+              <video autoplay muted loop playsinline>
+                <source
+                  src={frontmatter.abilities.one.video}
+                  type="video/mp4"
+                />
+              </video>
             </div>
             <div class="skill-description">
               <p>{frontmatter.skilldescription1}</p>
@@ -193,13 +191,12 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
           <h2>Skill two</h2>
           <div class="skill">
             <div class="skill-video">
-              <video
-                src={frontmatter.abilities.two.video}
-                type="video/webm"
-                autoplay
-                muted
-                loop
-                playsinline></video>
+              <video autoplay muted loop playsinline>
+                <source
+                  src={frontmatter.abilities.two.video}
+                  type="video/mp4"
+                />
+              </video>
             </div>
             <div class="skill-description">
               <p>{frontmatter.skilldescription1}</p>
@@ -210,13 +207,12 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
           <h2>Skill three</h2>
           <div class="skill">
             <div class="skill-video">
-              <video
-                src={frontmatter.abilities.three.video}
-                type="video/webm"
-                autoplay
-                muted
-                loop
-                playsinline></video>
+              <video autoplay muted loop playsinline>
+                <source
+                  src={frontmatter.abilities.three.video}
+                  type="video/mp4"
+                />
+              </video>
             </div>
             <div class="skill-description">
               <p>{frontmatter.skilldescription1}</p>
@@ -227,13 +223,12 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
           <h2>Skill four</h2>
           <div class="skill">
             <div class="skill-video">
-              <video
-                src={frontmatter.abilities.ult.video}
-                type="video/webm"
-                autoplay
-                muted
-                loop
-                playsinline></video>
+              <video autoplay muted loop playsinline>
+                <source
+                  src={frontmatter.abilities.ult.video}
+                  type="video/mp4"
+                />
+              </video>
             </div>
             <div class="skill-description">
               <p>{frontmatter.skilldescription1}</p>
