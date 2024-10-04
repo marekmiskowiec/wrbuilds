@@ -156,84 +156,50 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
       <section class="skills">
         <div class="container">
           <h2>Abilities</h2>
-          <h2>Passive</h2>
-          <div class="skill">
-            <div class="skill-video">
-              <video autoplay muted loop playsinline>
-                <source
-                  src={frontmatter.abilities.passive.video}
-                  type="video/mp4"
-                />
-              </video>
-            </div>
-            <div class="skill-description">
-              <p>{frontmatter.skilldescription1}</p>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <h2>Skill one</h2>
-          <div class="skill">
-            <div class="skill-video">
-              <video autoplay muted loop playsinline>
-                <source
-                  src={frontmatter.abilities.one.video}
-                  type="video/mp4"
-                />
-              </video>
-            </div>
-            <div class="skill-description">
-              <p>{frontmatter.skilldescription1}</p>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <h2>Skill two</h2>
-          <div class="skill">
-            <div class="skill-video">
-              <video autoplay muted loop playsinline>
-                <source
-                  src={frontmatter.abilities.two.video}
-                  type="video/mp4"
-                />
-              </video>
-            </div>
-            <div class="skill-description">
-              <p>{frontmatter.skilldescription1}</p>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <h2>Skill three</h2>
-          <div class="skill">
-            <div class="skill-video">
-              <video autoplay muted loop playsinline>
-                <source
-                  src={frontmatter.abilities.three.video}
-                  type="video/mp4"
-                />
-              </video>
-            </div>
-            <div class="skill-description">
-              <p>{frontmatter.skilldescription1}</p>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <h2>Skill four</h2>
-          <div class="skill">
-            <div class="skill-video">
-              <video autoplay muted loop playsinline>
-                <source
-                  src={frontmatter.abilities.ult.video}
-                  type="video/mp4"
-                />
-              </video>
-            </div>
-            <div class="skill-description">
-              <p>{frontmatter.skilldescription1}</p>
-            </div>
-          </div>
+
+          {
+            [
+              {
+                name: "Passive",
+                video: frontmatter.abilities.passive.video,
+                description: frontmatter.skilldescription1,
+              },
+              {
+                name: "Skill one",
+                video: frontmatter.abilities.one.video,
+                description: frontmatter.skilldescription2,
+              },
+              {
+                name: "Skill two",
+                video: frontmatter.abilities.two.video,
+                description: frontmatter.skilldescription3,
+              },
+              {
+                name: "Skill three",
+                video: frontmatter.abilities.three.video,
+                description: frontmatter.skilldescription4,
+              },
+              {
+                name: "Ultimate",
+                video: frontmatter.abilities.ult.video,
+                description: frontmatter.skilldescription5,
+              },
+            ].map((skill, index) => (
+              <div class="container" key={index}>
+                <h2>{skill.name}</h2>
+                <div class="skill">
+                  <div class="skill-video">
+                    <video autoplay muted loop playsinline>
+                      <source src={skill.video} type="video/mp4" />
+                    </video>
+                  </div>
+                  <div class="skill-description">
+                    <p>{skill.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
         </div>
       </section>
     </section>
