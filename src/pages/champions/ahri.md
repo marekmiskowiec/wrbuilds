@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/ChampionLayout.astro
-title: "aatrox"
+title: "ahri"
 description: "the Darkin Blade"
-image: ../champions/aatrox.webp
+image: ../champions/ahri.webp
 author: "Lexiw"
 role: ["Baron", "Jungle"]
 tier: "S+"

@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/ChampionLayout.astro
-title: "aatrox"
+title: "akali"
 description: "the Darkin Blade"
-image: ../champions/aatrox.webp
+image: ../champions/akali.webp
 author: "Lexiw"
 role: ["Baron", "Jungle"]
 tier: "S+"

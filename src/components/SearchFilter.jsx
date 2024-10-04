@@ -26,7 +26,7 @@ export default function SearchChampions({ allChampions }) {
               <div className="box">
                 <div className="champion-image">
                   <img
-                    src={`/champions/${champion.frontmatter.title}.webp`}
+                    src={`/champions/${champion.frontmatter.image}`}
                     alt={champion.frontmatter.title}
                   />
                 </div>
