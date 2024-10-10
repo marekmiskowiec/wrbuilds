@@ -9,7 +9,7 @@ export default function SearchChampions({ allChampions }) {
   );
 
   return (
-    <div>
+    <>
       <div className="search-bar">
         <input
           type="text"
@@ -18,28 +18,29 @@ export default function SearchChampions({ allChampions }) {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
-
-      <div className="container">
-        {filteredChampions.length > 0 ? (
-          filteredChampions.map((champion) => (
-            <a href={"/champions/" + champion.frontmatter.title}>
-              <div className="box">
-                <div className="champion-image">
-                  <img
-                    src={`/champions/${champion.frontmatter.image}`}
-                    alt={champion.frontmatter.title}
-                  />
+      <div className="test">
+        <div className="container">
+          {filteredChampions.length > 0 ? (
+            filteredChampions.map((champion) => (
+              <a href={"/champions/" + champion.frontmatter.title}>
+                <div className="box">
+                  <div className="champion-image">
+                    <img
+                      src={`/champions/${champion.frontmatter.image}`}
+                      alt={champion.frontmatter.title}
+                    />
+                  </div>
+                  <div className="champion-name">
+                    {champion.frontmatter.title}
+                  </div>
                 </div>
-                <div className="champion-name">
-                  {champion.frontmatter.title}
-                </div>
-              </div>
-            </a>
-          ))
-        ) : (
-          <p>No champions found</p>
-        )}
+              </a>
+            ))
+          ) : (
+            <p>No champions found</p>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
