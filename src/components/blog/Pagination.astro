@@ -7,22 +7,74 @@ interface Props {
   disablePrevious: boolean;
   disableNext: boolean;
 }
+
+// Interfejs dla funkcji getPaginationRange
+interface PaginationRange {
+  (currentPage: number, totalPages: number): (number | string)[];
+}
+
+// Funkcja, która zwraca numery stron do wyświetlenia
+const getPaginationRange: PaginationRange = (currentPage, totalPages) => {
+  const delta = 1; // Liczba stron do pokazania przed i po bieżącej stronie
+  const range: (number | string)[] = [];
+  const dots = "...";
+
+  // Zawsze pokaż pierwszą i ostatnią stronę
+  for (let i = 1; i <= totalPages; i++) {
+    if (
+      i === 1 ||
+      i === totalPages ||
+      (i >= currentPage - delta && i <= currentPage + delta)
+    ) {
+      range.push(i);
+    } else if (range[range.length - 1] !== dots) {
+      range.push(dots); // Dodaj wielokropek, jeśli wcześniej nie było
+    }
+  }
+
+  return range;
+};
+
+const paginationRange = getPaginationRange(currentPage, totalPages);
 ---
 
 <!-- Pagination -->
-<div class="flex justify-center mt-10 gap-10">
+<div class="flex justify-center mt-10 gap-2">
+  <!-- Previous Button -->
   <a
-    href=`/blog?page=${currentPage - 1}`
+    href={`/blog?page=${currentPage - 1}`}
     class={disablePrevious
-      ? "inline-block bg-gray-100 px-3 py-2 hover:bg-indigo-600text-gray-400 rounded-lg pointer-events-none"
+      ? "inline-block bg-gray-100 px-3 py-2 hover:bg-indigo-600 text-gray-400 rounded-lg pointer-events-none"
       : "inline-block bg-indigo-100 px-3 py-2 hover:bg-indigo-600 hover:text-white rounded-lg"}
   >
     Previous
   </a>
+
+  <!-- Page Numbers -->
+  {
+    paginationRange.map((page) =>
+      page === "..." ? (
+        <span class="inline-block px-3 py-2 text-gray-500">...</span>
+      ) : (
+        <a
+          href={`/blog?page=${page}`}
+          class={
+            page === currentPage
+              ? "inline-block bg-indigo-600 text-white px-3 py-2 rounded-lg"
+              : "inline-block bg-indigo-100 px-3 py-2 hover:bg-indigo-600 hover:text-white rounded-lg"
+          }
+        >
+          {page}
+        </a>
+      )
+    )
+  }
+
+  <!-- Next Button -->
   <a
-    href=`/blog?page=${currentPage + 1}`
+    href={`/blog?page=${currentPage + 1}`}
     class={disableNext
-      ? "inline-block bg-gray-100 px-3 py-2 hover:bg-indigo-600text-gray-400 rounded-lg pointer-events-none"
+      ? "inline-block bg-gray-100 px-3 py-2 hover:bg-indigo-600 text-gray-400 rounded-lg pointer-events-none"
       : "inline-block bg-indigo-100 px-3 py-2 hover:bg-indigo-600 hover:text-white rounded-lg"}
   >
     Next
