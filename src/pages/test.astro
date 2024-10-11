@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <style>
+      /* Stylowanie dla motywu jasnego */
+      body {
+        background-color: #ffffff;
+        color: #000000;
+      }
+
+      /* Stylowanie dla motywu ciemnego */
+      body.dark-theme {
+        background-color: #1e1e1e;
+        color: #ffffff;
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const themeToggleBtn = document.getElementById("theme-toggle-btn");
+
+        // Sprawdzanie, czy przycisk istnieje
+        if (themeToggleBtn) {
+          themeToggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-theme");
+          });
+        }
+      });
+    </script>
+  </head>
+
+  <body>
+    <button id="theme-toggle-btn">Zmień motyw</button>
+  </body>
+</html>

@@ -176,3 +176,30 @@
     });
   }
 </script>
+
+<style>
+  /* Stylowanie dla motywu jasnego */
+  body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  /* Stylowanie dla motywu ciemnego */
+  body.dark-theme {
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const themeToggleBtn = document.getElementById("icon");
+
+    // Sprawdzanie, czy przycisk istnieje
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-theme");
+      });
+    }
+  });
+</script>
