@@ -7,7 +7,7 @@
 
     <style>
       /* Stylowanie dla motywu jasnego */
-      body {
+      body.light-theme {
         background-color: #ffffff;
         color: #000000;
       }
@@ -17,23 +17,60 @@
         background-color: #1e1e1e;
         color: #ffffff;
       }
+
+      /* Stylowanie dla motywu niebieskiego */
+      body.blue-theme {
+        background-color: #007bff;
+        color: #ffffff;
+      }
+
+      /* Stylowanie dla motywu zielonego */
+      body.green-theme {
+        background-color: #28a745;
+        color: #ffffff;
+      }
     </style>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const themeToggleBtn = document.getElementById("theme-toggle-btn");
+      // Funkcja do ustawiania motywu
+      const setTheme = (themeName: string) => {
+        document.body.className = themeName; // Zastępuje wszystkie klasy body wybraną klasą motywu
+        localStorage.setItem("theme", themeName); // Zapisuje preferencje użytkownika w localStorage
+      };
 
-        // Sprawdzanie, czy przycisk istnieje
-        if (themeToggleBtn) {
-          themeToggleBtn.addEventListener("click", () => {
-            document.body.classList.toggle("dark-theme");
-          });
+      // Funkcja inicjalizująca motyw po załadowaniu strony
+      const initTheme = () => {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+          document.body.className = savedTheme; // Przywraca zapisany motyw
         }
+      };
+
+      // Dodajemy event listener na przyciski, które zmieniają motyw
+      document.addEventListener("DOMContentLoaded", () => {
+        // Inicjalizacja motywu przy starcie
+        initTheme();
+
+        // Przełączanie motywów za pomocą przycisków
+        const themeButtons = document.querySelectorAll(
+          ".theme-toggle-btn"
+        ) as NodeListOf<HTMLButtonElement>;
+        themeButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const theme = button.dataset.theme; // Odczytujemy nazwę motywu z data-theme
+            setTheme(theme!); // Dodajemy !, aby poinformować TS, że wartość nie jest null
+          });
+        });
       });
     </script>
   </head>
 
   <body>
-    <button id="theme-toggle-btn">Zmień motyw</button>
+    <h1>Wybierz motyw:</h1>
+
+    <button class="theme-toggle-btn" data-theme="light-theme">Jasny</button>
+    <button class="theme-toggle-btn" data-theme="dark-theme">Ciemny</button>
+    <button class="theme-toggle-btn" data-theme="blue-theme">Niebieski</button>
+    <button class="theme-toggle-btn" data-theme="green-theme">Zielony</button>
   </body>
 </html>

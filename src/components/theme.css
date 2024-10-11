@@ -1,0 +1,35 @@
+/* Stylowanie dla motywu jasnego */
+body.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Stylowanie dla motywu ciemnego */
+body.dark-theme {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* Stylowanie dla motywu niebieskiego */
+body.blue-theme {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+/* Stylowanie dla motywu zielonego */
+body.green-theme {
+  background-color: #28a745;
+  color: #ffffff;
+}
+
+.theme-toggle-btn img {
+  width: 30px;
+}
+
+.theme {
+  background-color: rgba(238, 238, 230, 0.229);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
