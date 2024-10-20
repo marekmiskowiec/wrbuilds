@@ -11,7 +11,7 @@ interface Props {
 ---
 
 <div class="max-w-md mx-auto mt-10">
-  <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+  <div class="bg-white rounded-lg overflow-hidden shadow-lg article-card">
     <a href={"/blog/" + article.slug}>
       <img
         src={"/blog/" + article.data.image}
@@ -23,7 +23,7 @@ interface Props {
       <h2 class="text-2xl font-semibold mb-2">
         <a href={"/blog/" + article.slug}>{article.data.title}</a>
       </h2>
-      <p class="text-gray-600 text-sm mb-4">
+      <p class="text-gray-600 text-sm mb-4 article-card">
         Updated:
         {formatDate(article.data.pubDate)}
       </p>

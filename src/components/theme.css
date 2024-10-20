@@ -1,25 +1,39 @@
 /* Stylowanie dla motywu jasnego */
 body.light-theme {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #ffffffa3;
+
+  .container {
+    background-color: #ffffffa3;
+  }
 }
 
 /* Stylowanie dla motywu ciemnego */
 body.dark-theme {
   background-color: #1e1e1e;
-  color: #ffffff;
-}
 
-/* Stylowanie dla motywu niebieskiego */
-body.blue-theme {
-  background-color: #007bff;
-  color: #ffffff;
-}
+  .container {
+    background-color: #1e1e1e;
+  }
 
-/* Stylowanie dla motywu zielonego */
-body.green-theme {
-  background-color: #28a745;
-  color: #ffffff;
+  .blog-title {
+    color: #ffffff;
+  }
+
+  .article-card {
+    background-color: #1e1e1e;
+    color: #fff;
+  }
+
+  /* champion layout */
+  .skills .container,
+  .info .container,
+  .summoner-spells .container,
+  .runes .container,
+  .skill-order .container,
+  .how2play .container,
+  .items .container {
+    background-color: #a71d32b9;
+  }
 }
 
 .theme-toggle-btn img {
@@ -27,7 +41,6 @@ body.green-theme {
 }
 
 .theme {
-  background-color: rgba(238, 238, 230, 0.229);
   height: 50px;
   display: flex;
   align-items: center;

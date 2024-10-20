@@ -1,4 +1,11 @@
 ---
+const { frontmatter } = Astro.props;
+import data from "../data/champion-stats.json";
+import BaseLayout from "./BaseLayout.astro";
+
+const skills = frontmatter.builds.skills;
+const skillOrder = ["s1", "s2", "s3", "s4"];
+
 interface Build {
   items: string[];
   summoners: string[];
@@ -24,14 +31,6 @@ interface Frontmatter {
   abilities: Abilities;
   skilldescription1: string;
 }
-
-const { frontmatter } = Astro.props;
-import data from "../data/champion-stats.json";
-
-import BaseLayout from "./BaseLayout.astro";
-
-const skills = frontmatter.builds.skills;
-const skillOrder = ["s1", "s2", "s3", "s4"];
 ---
 
 <BaseLayout>
@@ -68,6 +67,51 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
         <p><strong>Stats:</strong>{data[frontmatter.title].stats.hp_base}</p>
       </div>
     </section> -->
+    <!-- <details id="target-me">
+      <summary>
+        <div class="content-box">
+          <h1>AATROX JUNGLE</h1>
+        </div>
+      </summary>
+    </details> -->
+
+    <section class="summoner-spells">
+      <div class="container">
+        <h2>{frontmatter.title} - summoner spells</h2>
+        <div class="row">
+          {
+            frontmatter.builds.summoners.map((summoner: string) => (
+              <div class="item-container">
+                <div class="item-image">
+                  <img src={`/summoners/${summoner}.webp`} alt="" />
+                </div>
+                <div class="item-description">
+                  {summoner.replaceAll("-", " ")}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="runes">
+      <div class="container">
+        <h2>{frontmatter.title} - runes</h2>
+        <div class="row">
+          {
+            frontmatter.builds.runes.map((rune: string) => (
+              <div class="item-container">
+                <div class="item-image">
+                  <img src={`/runes/${rune}.webp`} alt="" />
+                </div>
+                <div class="item-description">{rune.replaceAll("-", " ")}</div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
 
     <section class="items">
       <div class="container">
@@ -85,128 +129,116 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
           }
         </div>
       </div>
+    </section>
 
-      <section class="summoner-spells">
-        <div class="container">
-          <h2>{frontmatter.title} - summoner spells</h2>
-          <div class="row">
-            {
-              frontmatter.builds.summoners.map((summoner: string) => (
-                <div class="item-container">
-                  <div class="item-image">
-                    <img src={`/summoners/${summoner}.webp`} alt="" />
-                  </div>
-                  <div class="item-description">
-                    {summoner.replaceAll("-", " ")}
-                  </div>
-                </div>
-              ))
-            }
-          </div>
-        </div>
-      </section>
-
-      <section class="runes">
-        <div class="container">
-          <h2>{frontmatter.title} - runes</h2>
-          <div class="row">
-            {
-              frontmatter.builds.runes.map((rune: string) => (
-                <div class="item-container">
-                  <div class="item-image">
-                    <img src={`/runes/${rune}.webp`} alt="" />
-                  </div>
-                  <div class="item-description">
-                    {rune.replaceAll("-", " ")}
-                  </div>
-                </div>
-              ))
-            }
-          </div>
-        </div>
-      </section>
-
-      <section id="skills">
-        <div class="container">
-          <h2>Skill Order {frontmatter.title}</h2>
-          <div class="skills-order">
-            {
-              Array.from({ length: 15 }, (_, index) => (
-                <div class="box">{index + 1}</div>
-              ))
-            }
-          </div>
-          {
-            skillOrder.map((order) => (
-              <div class="skills-order">
-                {skills.map((skill: string) =>
-                  skill === order ? (
-                    <div class="box" style="background-color: green;" />
-                  ) : (
-                    <div class="box" />
-                  )
-                )}
+    <section class="skill-order">
+      <div class="container">
+        <h2>Skill Order {frontmatter.title}</h2>
+        {
+          skillOrder.map((order: string, index: number) => (
+            <div class="skills-order">
+              <div class="box" style="background-color: red; width:50px">
+                Ability{index + 1}
               </div>
-            ))
-          }
-          <p>{frontmatter.builds.skillsorder}</p>
-        </div>
-      </section>
+              {skills.map((skill: string, index: number) =>
+                skill === order ? (
+                  <div class="box" style="background-color: green;">
+                    {index + 1}
+                  </div>
+                ) : (
+                  <div class="box" />
+                )
+              )}
+            </div>
+          ))
+        }
+        <p>{frontmatter.builds.skillsorder}</p>
+      </div>
+    </section>
 
-      <section class="skills">
-        <div class="container">
-          <h2>Abilities</h2>
-
+    <section class="skills">
+      {
+        [
           {
-            [
-              {
-                name: "Passive",
-                video: frontmatter.abilities.passive.video,
-                description: frontmatter.skilldescription1,
-              },
-              {
-                name: "Skill one",
-                video: frontmatter.abilities.one.video,
-                description: frontmatter.skilldescription2,
-              },
-              {
-                name: "Skill two",
-                video: frontmatter.abilities.two.video,
-                description: frontmatter.skilldescription3,
-              },
-              {
-                name: "Skill three",
-                video: frontmatter.abilities.three.video,
-                description: frontmatter.skilldescription4,
-              },
-              {
-                name: "Ultimate",
-                video: frontmatter.abilities.ult.video,
-                description: frontmatter.skilldescription5,
-              },
-            ].map((skill, index) => (
-              <div class="container">
-                <h2>{skill.name}</h2>
-                <div class="skill">
-                  <div class="skill-video">
-                    <video autoplay muted loop playsinline>
-                      <source src={skill.video} type="video/mp4" />
-                    </video>
-                  </div>
-                  <div class="skill-description">
-                    <p>{skill.description}</p>
-                  </div>
-                </div>
+            name: frontmatter.abilities.ability0.title,
+            video: frontmatter.abilities.ability0.video,
+            description: frontmatter.abilities.ability0.description,
+          },
+          {
+            name: frontmatter.abilities.ability1.title,
+            video: frontmatter.abilities.ability1.video,
+            description: frontmatter.abilities.ability1.description,
+          },
+          {
+            name: frontmatter.abilities.ability2.title,
+            video: frontmatter.abilities.ability2.video,
+            description: frontmatter.abilities.ability2.description,
+          },
+          {
+            name: frontmatter.abilities.ability3.title,
+            video: frontmatter.abilities.ability3.video,
+            description: frontmatter.abilities.ability3.description,
+          },
+          {
+            name: frontmatter.abilities.ability4.title,
+            video: frontmatter.abilities.ability4.video,
+            description: frontmatter.abilities.ability4.description,
+          },
+        ].map((skill, index) => (
+          <div class="container">
+            <h2>{skill.name}</h2>
+            <div class="skill">
+              <div class="skill-video">
+                <video autoplay muted loop playsinline>
+                  <source src={skill.video} type="video/mp4" />
+                </video>
               </div>
-            ))
-          }
+              <div class="skill-description">
+                <p>{skill.description}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="how2play">
+      <div class="container">
+        <div class="game-phase">
+          <h2>Early game</h2>
+          <p>{frontmatter.early_game}</p>
         </div>
-      </section>
+        <div class="game-phase">
+          <h2>Mid game</h2>
+          <p>{frontmatter.mid_game}</p>
+        </div>
+        <div class="game-phase">
+          <h2>Late game</h2>
+          <p>{frontmatter.late_game}</p>
+        </div>
+      </div>
     </section>
   </div>
 </BaseLayout>
 
+<!-- <script>
+  document.getElementById("target-me").open = true;
+</script> -->
+
 <style>
+  .how2play .container {
+    color: white;
+    text-align: left;
+  }
+
+  .game-phase {
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
   .champion-container {
     margin: 0 auto;
     width: 90%;
@@ -253,6 +285,7 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
     width: 200px;
     height: auto;
     border-radius: 15px;
+    margin: 0 auto;
   }
 
   .champion-title {
@@ -264,14 +297,18 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
     font-size: 20px;
   }
 
-  .skill {
+  /* skills order */
+  .skills-order {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0;
     flex-direction: row;
     gap: 10px;
     margin-bottom: 20px;
   }
 
-  .skills-order {
+  .skill {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -290,7 +327,8 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
 
   .skill-description {
     flex: 1 0 50%;
-    background-color: rgba(36, 227, 241, 0.687);
+    /* background-color: rgba(36, 227, 241, 0.687); */
+    background-color: transparent;
     font-size: 20px;
     padding: 15px;
     text-align: left;
@@ -317,6 +355,16 @@ const skillOrder = ["s1", "s2", "s3", "s4"];
     color: #fff;
   }
 
+  /* details {
+    padding: 25px;
+    background-color: #4d708e;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  summary::marker {
+    content: "";
+  } */
   /* Styl dla średnich ekranów (tablety) */
   @media (max-width: 768px) {
     .champion-container {
