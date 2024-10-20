@@ -1,9 +1,20 @@
 /* Stylowanie dla motywu jasnego */
 body.light-theme {
-  background-color: #ffffffa3;
+  background-color: #ffffff;
 
   .container {
-    background-color: #ffffffa3;
+    background-color: #ffffff;
+  }
+
+  /* champion layout */
+  .skills .container,
+  .info .container,
+  .summoner-spells .container,
+  .runes .container,
+  .skill-order .container,
+  .how2play .container,
+  .items .container {
+    background-color: #979797;
   }
 }
 
@@ -20,7 +31,7 @@ body.dark-theme {
   }
 
   .article-card {
-    background-color: #1e1e1e;
+    background-color: #383334;
     color: #fff;
   }
 
@@ -32,17 +43,6 @@ body.dark-theme {
   .skill-order .container,
   .how2play .container,
   .items .container {
-    background-color: #a71d32b9;
+    background-color: #4d539c;
   }
-}
-
-.theme-toggle-btn img {
-  width: 30px;
-}
-
-.theme {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
