@@ -21,10 +21,10 @@ const initTheme = () => {
 const updateIcon = (themeName: string) => {
   const icon = document.getElementById("icon") as HTMLImageElement;
   if (themeName === "light-theme") {
-    icon.src = "./theme/moon.png";
+    icon.src = "/theme/moon.png";
     icon.alt = "moon";
   } else {
-    icon.src = "./theme/sun.png";
+    icon.src = "/theme/sun.png";
     icon.alt = "sun";
   }
 };
