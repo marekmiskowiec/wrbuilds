@@ -15,7 +15,7 @@ const ChampionFilter = ({ champions, folder, filter_type }) => {
 
   return (
     <div className="tier-list-container">
-      <h2 class="page-title">
+      <h2 className="page-title">
         {folder} Tier List Patch {CURRENT_PATCH}
       </h2>
       <h2 className="page-title">Last update: 03.10.2024</h2>
