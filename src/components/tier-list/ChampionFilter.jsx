@@ -39,10 +39,12 @@ const ChampionFilter = ({ champions, folder, filter_type }) => {
               (champion) => (
                 <div className="box" key={champion.name}>
                   <div className="champion-image">
-                    <img
-                      src={`/${folder}/${champion.name}.webp`}
-                      alt={champion.name}
-                    />
+                    <a href={`/champions/${champion.name}`}>
+                      <img
+                        src={`/${folder}/${champion.name}.webp`}
+                        alt={champion.name}
+                      />
+                    </a>
                   </div>
                   <div className="champion-name">
                     {champion.title

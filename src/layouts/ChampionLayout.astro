@@ -3,6 +3,29 @@ const { frontmatter } = Astro.props;
 import data from "../data/champion-stats.json";
 import BaseLayout from "./BaseLayout.astro";
 
+// Set default values for frontmatter properties
+const title = frontmatter.title ?? "Default Champion Name";
+const image = frontmatter.image ?? "/images/default-image.webp";
+const description =
+  frontmatter.description ?? "Default description for the champion.";
+const tier = frontmatter.tier ?? "Unranked";
+const builds = frontmatter.builds ?? {
+  items: [],
+  summoners: [],
+  runes: [],
+  skills: [],
+  skillsorder: "default",
+};
+const abilities = frontmatter.abilities ?? {
+  passive: { video: "/videos/default-passive.mp4" },
+  one: { video: "/videos/default-ability1.mp4" },
+  two: { video: "/videos/default-ability2.mp4" },
+  three: { video: "/videos/default-ability3.mp4" },
+  ult: { video: "/videos/default-ult.mp4" },
+};
+const skilldescription1 =
+  frontmatter.skilldescription1 ?? "Default skill description";
+
 const skills = frontmatter.builds.skills;
 const skillOrder = ["s1", "s2", "s3", "s4"];
 

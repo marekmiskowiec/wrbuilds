@@ -1,5 +1,5 @@
 ---
-title: "Wildrift Best Beginner CHampions for Every Role"
+title: "Wildrift Best Beginner Champions for Every Role"
 pubDate: 2024-01-15
 author: "Lexiw"
 image: "baron-lane-guide.jpg"
@@ -15,7 +15,7 @@ Whether you’re new to Wild Rift or a seasoned League of Legends player transit
 
 ## **Baron Lane - Garen**
 
-![Garen](https://example.com/garen-image)  
+![Garen](/blog/champions/annie1.jpg)  
 Garen is an ideal beginner champion for the Baron Lane. His tanky nature and simple kit allow you to focus on learning lane management and team fighting without worrying too much about complex mechanics.
 
 **Why Garen?**
@@ -32,7 +32,7 @@ Garen is an ideal beginner champion for the Baron Lane. His tanky nature and sim
 
 ## **Jungle - Master Yi**
 
-![Master Yi](https://example.com/masteryi-image)  
+![Master Yi](/blog/champions/annie1.jpg)  
 Master Yi is an easy-to-play jungler with a focus on farming and cleaning up fights. His simple playstyle allows you to focus on jungle pathing and objective control while still being a threat in the late game.
 
 **Why Master Yi?**
@@ -49,7 +49,7 @@ Master Yi is an easy-to-play jungler with a focus on farming and cleaning up fig
 
 ## **Mid Lane - Annie**
 
-![Annie](https://example.com/annie-image)  
+![Annie](/blog/champions/annie1.jpg)  
 Annie is one of the most straightforward mid-lane champions. Her burst damage and simplicity make her a great champion for beginners learning how to control the mid-lane and roam to other areas of the map.
 
 **Why Annie?**
@@ -66,7 +66,7 @@ Annie is one of the most straightforward mid-lane champions. Her burst damage an
 
 ## **Dragon Lane (ADC) - Ashe**
 
-![Ashe](https://example.com/ashe-image)  
+![Ashe](/blog/champions/annie1.jpg)  
 Ashe is a perfect ADC for beginners thanks to her long-range attacks and crowd control. She offers utility and damage while being relatively easy to play.
 
 **Why Ashe?**
@@ -83,7 +83,7 @@ Ashe is a perfect ADC for beginners thanks to her long-range attacks and crowd c
 
 ## **Support - Sona**
 
-![Sona](https://example.com/sona-image)  
+![Sona](/blog/champions/annie1.jpg)  
 Sona is an easy-to-learn support champion that provides healing, crowd control, and buffs to her team. Her simple yet effective kit makes her perfect for beginners learning the fundamentals of positioning and supporting.
 
 **Why Sona?**

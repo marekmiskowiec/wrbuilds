@@ -9,12 +9,25 @@ body.light-theme {
   /* champion layout */
   .skills .container,
   .info .container,
-  .summoner-spells .container,
+  .summone -spells .container,
   .runes .container,
   .skill-order .container,
   .how2play .container,
   .items .container {
     background-color: #979797;
+  }
+
+  /* article */
+  .article-title {
+    color: black;
+  }
+
+  .article-pubDate {
+    color: black;
+  }
+
+  .article-content {
+    color: black;
   }
 }
 
@@ -44,5 +57,18 @@ body.dark-theme {
   .how2play .container,
   .items .container {
     background-color: #4d539c;
+  }
+
+  /* article */
+  .article-title {
+    color: white;
+  }
+
+  .article-pubDate {
+    color: white;
+  }
+
+  .article-content {
+    color: white;
   }
 }
