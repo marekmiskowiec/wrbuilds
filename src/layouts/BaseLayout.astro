@@ -13,15 +13,10 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{SITE_TITLE}</title>
-
-    <style>
-      body {
-      }
-    </style>
   </head>
   <body>
     <Navigation />
     <slot />
-    <!-- <Footer /> -->
+    <Footer />
   </body>
 </html>
